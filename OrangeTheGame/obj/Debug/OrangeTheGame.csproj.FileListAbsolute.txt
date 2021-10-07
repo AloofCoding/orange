@@ -5,3 +5,11 @@ C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Deb
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame_MarkupCompile.lref
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.exe
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.pdb
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\bin\Debug\OrangeTheGame.exe.config
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\bin\Debug\OrangeTheGame.exe
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\bin\Debug\OrangeTheGame.pdb
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\MainWindow.baml
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.g.resources
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.Properties.Resources.resources
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.csproj.GenerateResource.cache
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.csproj.CoreCompileInputs.cache
