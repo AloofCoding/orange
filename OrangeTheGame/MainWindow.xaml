@@ -19,18 +19,19 @@
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
                             <Border Name="border" 
-                            BorderThickness="3"
-                            Padding="0" 
-                            BorderBrush="#CE7300" 
-                            CornerRadius="5" 
-                            Background="{TemplateBinding Background}">
+                              BorderThickness="3"
+                              Padding="0" 
+                              BorderBrush="#CE7300" 
+                              CornerRadius="5" 
+                              Background="{TemplateBinding Background}">
+                              
                                 <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter TargetName="border" Property="Background" Value="#CE7300" />
                                     <Setter TargetName="border" Property="BorderBrush" Value="#CE7300" />
-                                    <!--<Setter Property="Foreground" Value="#FF8F02" />-->
+                                    <!--<Setter TargetName="btn_startGame" Property="Foreground" Value="#FF8F02" />-->
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
