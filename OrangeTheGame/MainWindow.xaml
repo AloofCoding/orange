@@ -31,7 +31,7 @@
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter TargetName="border" Property="Background" Value="#CE7300" />
                                     <Setter TargetName="border" Property="BorderBrush" Value="#CE7300" />
-                                    <Setter TargetName="btn_startGame" Property="Foreground" Value="#FF8F02" />
+                                    <!--<Setter TargetName="btn_startGame" Property="Foreground" Value="#FF8F02" />-->
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
