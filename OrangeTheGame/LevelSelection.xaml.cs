@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace OrangeTheGame
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für LevelSelection.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LevelSelection : Window
     {
-        public MainWindow()
+        public LevelSelection()
         {
             InitializeComponent();
-        }
-
-        private void btn_startGame_Click(object sender, RoutedEventArgs e)
-        {
-            //loading level selection screen
-
-
         }
     }
 }
