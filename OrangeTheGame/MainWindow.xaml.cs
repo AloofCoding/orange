@@ -28,8 +28,9 @@ namespace OrangeTheGame
         private void btn_startGame_Click(object sender, RoutedEventArgs e)
         {
             //loading level selection screen
-
-
+            this.Hide();
+            LevelSelection ls = new LevelSelection();
+            ls.Show();
         }
     }
 }

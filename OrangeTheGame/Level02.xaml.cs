@@ -15,18 +15,13 @@ using System.Windows.Shapes;
 namespace OrangeTheGame
 {
     /// <summary>
-    /// Interaktionslogik für LevelSelection.xaml
+    /// Interaktionslogik für Level02.xaml
     /// </summary>
-    public partial class LevelSelection : Window
+    public partial class Level02 : Window
     {
-        public LevelSelection()
+        public Level02()
         {
             InitializeComponent();
-        }
-
-        private void btn_Level1_Click(object sender, RoutedEventArgs e)
-        {
-            //load level 1 window
         }
     }
 }
