@@ -91,6 +91,12 @@ namespace OrangeTheGame {
             return;
             case 2:
             this.btn_startGame = ((System.Windows.Controls.Button)(target));
+            
+            #line 46 "..\..\MainWindow.xaml"
+            this.btn_startGame.Click += new System.Windows.RoutedEventHandler(this.btn_startGame_Click);
+            
+            #line default
+            #line hidden
             return;
             }
             this._contentLoaded = true;
