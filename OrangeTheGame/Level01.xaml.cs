@@ -10,27 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace OrangeTheGame
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für Level01.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Level01 : Window
     {
-        public MainWindow()
+        public Level01()
         {
             InitializeComponent();
         }
 
-        private void btn_startGame_Click(object sender, RoutedEventArgs e)
+        private void slider_lv1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            // showing level selection screen
-            // playing a sound effect
-            lbl_titleOnStartingScreen.Visibility = Visibility.Hidden;
-            btn_startGame.Visibility = Visibility.Hidden;
+
         }
     }
 }
