@@ -26,7 +26,28 @@ namespace OrangeTheGame
 
         private void slider_lv1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
+            SolidColorBrush magicBrush = (SolidColorBrush)this.Resources["magicBrush"];
+            byte green = 0;
+            byte blue = 0;
+            double calculation;
 
+            if ((slider_lv1 != null))
+            {
+                if (slider_lv1.Value >= 1)
+                {
+                    calculation = 143 * (slider_lv1.Value / 255);
+                    green = (byte)Math.Round(calculation, 0);
+                    calculation = 2 * (slider_lv1.Value / 255);
+                    blue = (byte)Math.Round(calculation, 0);
+                }                
+                magicBrush.Color = Color.FromRgb((byte)slider_lv1.Value, green, blue);
+                this.Background = magicBrush;
+            }
+
+            if (slider_lv1.Value == 255)
+            {
+
+            }
         }
     }
 }

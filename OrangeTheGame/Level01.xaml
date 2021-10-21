@@ -7,9 +7,16 @@
         mc:Ignorable="d"
         Title="Level01" Height="450" Width="800"
         Background="#000000">
+  
+          <Window.Resources>
+            <SolidColorBrush x:Key="magicBrush" Color="Black"/>
+          </Window.Resources>
+  
     <Grid>
         <Label Content="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="56" Foreground="#CE7300"/>
-        <Slider x:Name="slider_lv1" HorizontalAlignment="Center" Margin="0,0,0,150" VerticalAlignment="Center" Height="57" Width="315" Foreground="#CE7300" ValueChanged="slider_lv1_ValueChanged"/>
+        <Slider x:Name="slider_lv1" HorizontalAlignment="Center" Margin="0,0,0,150" VerticalAlignment="Center" Height="57" Width="315" Foreground="#CE7300" ValueChanged="slider_lv1_ValueChanged"
+                Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True" SmallChange="0" Cursor=""/>
+            <!-- ValueChanged="sli_ValueChanged" --> 
         
     </Grid>
 </Window>
