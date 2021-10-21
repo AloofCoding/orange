@@ -23,5 +23,13 @@ namespace OrangeTheGame
         {
             InitializeComponent();
         }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmb_hexcode1.SelectedIndex == 8 && cmb_hexcode2.SelectedIndex == 0)
+            {
+                MessageBox.Show("Level completed");
+            }
+        }
     }
 }

@@ -28,5 +28,12 @@ namespace OrangeTheGame
         {
             //load level 1 window
         }
+
+        private void btn_Level2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Level02 l2 = new Level02();
+            l2.Show();
+        }
     }
 }

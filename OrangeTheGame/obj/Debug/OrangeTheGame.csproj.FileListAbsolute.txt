@@ -22,3 +22,5 @@ C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.csproj.CoreCompileInputs.cache
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.exe
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.pdb
+C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level02.g.cs
+C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level02.baml
