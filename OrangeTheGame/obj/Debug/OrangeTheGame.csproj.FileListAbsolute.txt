@@ -15,3 +15,5 @@ C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Deb
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.csproj.CoreCompileInputs.cache
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level01.g.cs
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level01.baml
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level03.g.cs
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level03.baml

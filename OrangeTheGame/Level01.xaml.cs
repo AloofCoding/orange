@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace OrangeTheGame
 {
@@ -46,7 +47,14 @@ namespace OrangeTheGame
 
             if (slider_lv1.Value == 255)
             {
+                //level completed!!
+                //message/sign/sound of success
 
+                //Thread.Sleep(1000);
+                //MessageBox.Show("Level completed");
+                this.Close();
+                Level03 level = new Level03();
+                level.ShowDialog();
             }
         }
     }
