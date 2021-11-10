@@ -18,7 +18,7 @@
         </Grid.ColumnDefinitions>
         <Label Content="1" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="56" Foreground="#CE7300"/>
         <Slider x:Name="slider_lv1" HorizontalAlignment="Center" Margin="0,0,0,150" VerticalAlignment="Center" Height="57" Width="316" Foreground="#CE7300" ValueChanged="slider_lv1_ValueChanged"
-                Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True" SmallChange="0" Cursor=""/>
+                Minimum="0" Maximum="255" TickFrequency="1" IsSnapToTickEnabled="True" SmallChange="0" Cursor="" PreviewMouseLeftButtonUp="slider_lv1_PreviewMouseLeftButtonUp"/>
         <!-- ValueChanged="sli_ValueChanged" -->
 
     </Grid>

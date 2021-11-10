@@ -45,13 +45,17 @@ namespace OrangeTheGame
                 this.Background = magicBrush;
             }
 
+        }
+
+        private void slider_lv1_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
             if (slider_lv1.Value == 255)
             {
                 //level completed!!
                 //message/sign/sound of success
-
-                //Thread.Sleep(1000);
-                //MessageBox.Show("Level completed");
+                UpdateLayout();
+                Thread.Sleep(1000);
+                //MessageBox.Show("Level completed");          
                 this.Close();
                 Level03 level = new Level03();
                 level.ShowDialog();

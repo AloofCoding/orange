@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
 
 namespace OrangeTheGame
 {
@@ -26,44 +27,54 @@ namespace OrangeTheGame
 
         private void rect_01_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            fillRectangles(rect_01);
+            fillRectangles((Rectangle)sender);
+            checkIfFinished();
         }
 
+        //private void rect_02_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    fillRectangles(rect_02);
+        //    checkIfFinished();
+        //}
 
-        private void rect_02_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            fillRectangles(rect_02);
+        //private void rect_03_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    fillRectangles(rect_03);
+        //    checkIfFinished();
+        //}
 
-        }
+        //private void rect_04_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    fillRectangles(rect_04);
+        //    checkIfFinished();
+        //}
 
-        private void rect_03_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            fillRectangles(rect_03);
+        //private void rect_05_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        //{
+        //    fillRectangles(rect_05);
+        //    checkIfFinished();
+        //}
 
-        }
-
-        private void rect_04_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            fillRectangles(rect_04);
-
-        }
-
-        private void rect_05_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            fillRectangles(rect_05);
-
-        }
-
-        private void rect_06_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            fillRectangles(rect_06);
-
-        }
         private void fillRectangles(Rectangle rect)
         {
             Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
             SolidColorBrush myBrush = new SolidColorBrush(color);
             rect.Fill = myBrush;
+        }
+
+        private void checkIfFinished()
+        {
+            Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
+            SolidColorBrush myBrush = new SolidColorBrush(color);
+
+            if (rect_01.Fill.ToString().Equals(myBrush.ToString()) && rect_02.Fill.ToString().Equals(myBrush.ToString()) && rect_03.Fill.ToString().Equals(myBrush.ToString()) && rect_04.Fill.ToString().Equals(myBrush.ToString()) && rect_05.Fill.ToString().Equals(myBrush.ToString()))
+            {
+                this.UpdateLayout();
+                Thread.Sleep(500);
+                //level finished
+                MessageBox.Show("Finished lv3");
+                this.Close();
+            }
         }
     }
 }
