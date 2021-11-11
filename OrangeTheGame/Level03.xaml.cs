@@ -20,15 +20,19 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level03 : Window
     {
+        private int amountOfClicks;
+
         public Level03()
         {
             InitializeComponent();
+            amountOfClicks = 0;
         }
+
 
         private void rect_01_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             fillRectangles((Rectangle)sender);
-            checkIfFinished();
+            //checkIfFinished();
         }
 
         //private void rect_02_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -59,22 +63,36 @@ namespace OrangeTheGame
         {
             Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
             SolidColorBrush myBrush = new SolidColorBrush(color);
-            rect.Fill = myBrush;
+            if (!rect.Fill.ToString().Equals(myBrush.ToString()))
+            {
+                rect.Fill = myBrush;
+                amountOfClicks++;
+            }
+
+            UpdateLayout();
+            //MessageBox.Show("done");
         }
 
         private void checkIfFinished()
         {
             Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
-            SolidColorBrush myBrush = new SolidColorBrush(color);
+            
+            string myBrush = new SolidColorBrush(color).ToString();
 
-            if (rect_01.Fill.ToString().Equals(myBrush.ToString()) && rect_02.Fill.ToString().Equals(myBrush.ToString()) && rect_03.Fill.ToString().Equals(myBrush.ToString()) && rect_04.Fill.ToString().Equals(myBrush.ToString()) && rect_05.Fill.ToString().Equals(myBrush.ToString()))
+            if (amountOfClicks == 5)
             {
-                this.UpdateLayout();
-                Thread.Sleep(500);
+                
+                Thread.Sleep(1000);
                 //level finished
-                MessageBox.Show("Finished lv3");
+                //MessageBox.Show("Finished lv3");
+
                 this.Close();
             }
+        }
+
+        private void Window_LayoutUpdated(object sender, EventArgs e)
+        {
+            checkIfFinished();
         }
     }
 }
