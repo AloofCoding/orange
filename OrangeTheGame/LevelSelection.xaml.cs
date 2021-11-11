@@ -35,5 +35,12 @@ namespace OrangeTheGame
             Level02 l2 = new Level02();
             l2.Show();
         }
+
+        private void btn_Level4_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Level04 l4 = new Level04();
+            l4.Show();
+        }
     }
 }

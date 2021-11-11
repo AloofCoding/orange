@@ -7,13 +7,10 @@
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
         Title="Level02" Height="650" Width="1155"
-        Background="Black" WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <SolidColorBrush x:Key="magicBrush" Color="Black"/>
-    </Window.Resources>
+        Background="#FF0F02" WindowStartupLocation="CenterScreen">
     <Grid x:Name="bg">
         <Label Content="#FF     F     2" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Height="140" Width="550" IsEnabled="False" Foreground="#FFFF8F02" FontSize="100"/>
-        <xctk:IntegerUpDown Name="iup_hex1" Margin="466,240,549,239" FontSize="100" Increment="0" Maximum="9" Minimum="0" Foreground="#FFFF8F02" Background="Black"/>
-        <xctk:IntegerUpDown x:Name="iup_hex1_Copy" Margin="650,240,365,239" FontSize="100" Increment="0" Maximum="9" Minimum="0" Foreground="#FFFF8F02" Background="Black"/>
+        <xctk:IntegerUpDown x:Name="iup_hex1" Margin="466,240,549,239" FontSize="100" Increment="1" Maximum="9" Minimum="0" Foreground="#FF8F02" Background="Transparent" DisplayDefaultValueOnEmptyText="True" DefaultValue="1" ValueChanged="iup_hex2_ValueChanged"/>
+        <xctk:IntegerUpDown x:Name="iup_hex2" Margin="650,240,365,239" FontSize="100" Increment="1" Maximum="9" Minimum="0" Foreground="#FF8F02" Background="Transparent" DisplayDefaultValueOnEmptyText="True" DefaultValue="1" ValueChanged="iup_hex2_ValueChanged"/>
     </Grid>
 </Window>
