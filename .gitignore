@@ -5,10 +5,10 @@
 Debug/
 
 #rules from kuef
-**/*.suo
-**/*.sqlite
-**/Debug/
-**/Release/
+*.suo
+*.sqlite
+Debug/
+Release/
 **/*.user
 
 ## Ignore Visual Studio temporary files, build results, and

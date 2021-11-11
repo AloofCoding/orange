@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
         Title="Level03" Height="450" Width="800"
-        Background="#000000" LayoutUpdated="Window_LayoutUpdated">
+        Background="#000000">
     <Grid x:Name="grid_lv3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -28,7 +28,7 @@
         </Grid>
         <Grid Grid.Column="2" >
             <Rectangle x:Name="rect_03" Fill="#000000" HorizontalAlignment="Stretch" Margin="0,0,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Stretch"  PreviewMouseLeftButtonUp="rect_01_MouseLeftButtonDown"/>
-            <Label Content="3" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="56" Foreground="#CE7300"/>
+            
         </Grid>
         <Grid Grid.Column="3" >
             <Rectangle x:Name="rect_04" Fill="#000000" HorizontalAlignment="Stretch" Margin="0,0,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Stretch"  PreviewMouseLeftButtonUp="rect_01_MouseLeftButtonDown"/>
