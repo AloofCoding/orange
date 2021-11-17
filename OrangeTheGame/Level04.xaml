@@ -9,6 +9,6 @@
         Title="Level04" Height="650" Width="1155"
         Background="#FF8F02" WindowStartupLocation="CenterScreen">
     <Grid>
-        <xctk:ColorPicker x:Name="colorpicker" HorizontalAlignment="Center" Margin="10,10,10,409" VerticalAlignment="Center" Height="200" Width="1127" Background="Black"/>
+        <xctk:ColorPicker x:Name="colorpicker" HorizontalAlignment="Center" Margin="10,10,10,409" VerticalAlignment="Center" Height="200" Width="1127" Background="Black" SelectedColorChanged="colorpicker_SelectedColorChanged"/>
     </Grid>
 </Window>
