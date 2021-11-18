@@ -19,3 +19,5 @@ C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Deb
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.csproj.AssemblyReference.cache
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level05.g.cs
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level05.baml
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level07.g.cs
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level07.baml

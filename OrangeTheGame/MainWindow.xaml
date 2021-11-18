@@ -18,16 +18,16 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
-                          <!--<Setter Property="Foreground" Value="White"/>-->
+                            <!--<Setter Property="Foreground" Value="White"/>-->
                             <Border Name="border" 
                               BorderThickness="3"
                               Padding="0" 
                               BorderBrush="#CE7300" 
                               CornerRadius="5" 
-                              Background="{TemplateBinding Background}">                              
-                              <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                              Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                             </Border>
-                          
+
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter TargetName="border" Property="Background" Value="#FFA83A" />
@@ -42,7 +42,10 @@
         </UserControl.Resources>
 
         <Grid>
-            <Label x:Name="lbl_titleOnStartingScreen" Content="Orange" HorizontalAlignment="Center"  Margin="0,0,0,175" VerticalAlignment="Center" Foreground="#CE7300" FontSize="52" FontWeight="Bold"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lbl_titleOnStartingScreen" Content="Orange" HorizontalAlignment="Center"  Margin="0,0,0,150" VerticalAlignment="Center" Foreground="#CE7300" FontSize="52" FontWeight="Bold"/>
             <Button x:Name="btn_startGame" Style="{StaticResource MyButtonStyle}" Content="Start Game" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Center" Width="160" Height ="40" Background="Transparent" Foreground="#CE7300" BorderThickness="0" Cursor="Hand"
                     FontSize="24" Click="btn_startGame_Click"/>
         </Grid>

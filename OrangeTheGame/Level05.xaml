@@ -5,10 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
-        Title="Level03" Height="450" Width="800"
+        Title="Level05" Height="450" Width="800"
         Background="#000000" WindowState="Maximized">
     <Grid>
-        <Label Content="5" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="56" Foreground="#CE7300"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" >
+            <Rectangle x:Name="rect_01" Fill="#000000" HorizontalAlignment="Stretch" Margin="0,0,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Stretch"/>
+        </Grid>
+        <Grid Grid.Column="1" >
+            <Rectangle x:Name="rect_02" Fill="#000000" HorizontalAlignment="Stretch" Margin="0,0,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Stretch"/>
+            <Ellipse x:Name="ell_btn_left" Fill="#CE7300" HorizontalAlignment="Right" Height="100" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="100" MouseLeftButtonDown="ell_btn_left_MouseLeftButtonDown" Cursor="Hand" />
+        </Grid>
+        <Grid Grid.Column="2" >
+            <Rectangle x:Name="rect_03" Fill="#000000" HorizontalAlignment="Stretch" Margin="0,0,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Stretch"/>
+                <Label Content="5" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="56" Foreground="#CE7300"/>
+        </Grid>
+        <Grid Grid.Column="3" >
+            <Rectangle x:Name="rect_04" Fill="#000000" HorizontalAlignment="Stretch" Margin="0,0,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Stretch"/>
+            <Ellipse x:Name="ell_btn_right" Fill="#CE7300" HorizontalAlignment="Left" Height="100" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="100" MouseLeftButtonDown="ell_btn_right_MouseLeftButtonDown" Cursor="Hand" />
+        </Grid>
+        <Grid Grid.Column="4" >
+            <Rectangle x:Name="rect_05" Fill="#000000" HorizontalAlignment="Stretch" Margin="0,0,0,0" Stroke="Black" StrokeThickness="0" VerticalAlignment="Stretch"/>
+        </Grid>
     </Grid>
 </Window>
