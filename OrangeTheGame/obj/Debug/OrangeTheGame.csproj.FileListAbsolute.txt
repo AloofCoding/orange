@@ -14,8 +14,6 @@ C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\App.g.cs
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame_MarkupCompile.cache
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame_MarkupCompile.lref
-C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\LevelSelection.baml
-C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\MainWindow.baml
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.g.resources
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.Properties.Resources.resources
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.csproj.GenerateResource.cache
@@ -23,7 +21,6 @@ C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.exe
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.pdb
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level02.g.cs
-C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level02.baml
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\bin\Debug\Xceed.Wpf.AvalonDock.dll
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
@@ -43,4 +40,9 @@ C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\bin\Debug
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\bin\Debug\zh-Hans\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.csproj.CopyComplete
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level04.g.cs
+C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level06.g.cs
+C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level02.baml
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level04.baml
+C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level06.baml
+C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\LevelSelection.baml
+C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\MainWindow.baml
