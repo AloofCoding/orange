@@ -23,5 +23,89 @@ namespace OrangeTheGame
         {
             InitializeComponent();
         }
+
+        int count = 0;
+
+        Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
+
+        private void btn_top_Click(object sender, RoutedEventArgs e)
+        {
+            if (btn_top_blank1.Background == Brushes.Black)
+            {
+                SolidColorBrush brush = new SolidColorBrush(color);
+                btn_top_blank1.Background = brush;
+                count++;
+            }
+            else if(btn_top_blank2.Background == Brushes.Black && count == 3)
+            {
+                SolidColorBrush brush = new SolidColorBrush(color);
+                btn_top_blank2.Background = brush;
+                count++;
+            }
+            else if (btn_top_blank3.Background == Brushes.Black && count == 4)
+            {
+                SolidColorBrush brush = new SolidColorBrush(color);
+                btn_top_blank3.Background = brush;
+                count++;
+            }
+            else if (btn_top_blank4.Background == Brushes.Black && count == 7)
+            {
+                SolidColorBrush brush = new SolidColorBrush(color);
+                btn_top_blank4.Background = brush;
+                MessageBox.Show("Level cleared!");
+            }
+            else
+            {
+                btn_top_blank1.Background = Brushes.Black;
+                btn_top_blank2.Background = Brushes.Black;
+                btn_top_blank3.Background = Brushes.Black;
+                btn_top_blank4.Background = Brushes.Black;
+                btn_bottom_blank1.Background = Brushes.Black;
+                btn_bottom_blank2.Background = Brushes.Black;
+                btn_bottom_blank3.Background = Brushes.Black;
+                btn_bottom_blank4.Background = Brushes.Black;
+                count = 0;
+            }
+        }
+
+        private void btn_bottom_Click(object sender, RoutedEventArgs e)
+        {
+            if (btn_bottom_blank1.Background == Brushes.Black && count == 1)
+            {
+                SolidColorBrush brush = new SolidColorBrush(color);
+                btn_bottom_blank1.Background = brush;
+                count++;
+            }
+            else if(btn_bottom_blank2.Background == Brushes.Black && count == 2)
+            {
+                SolidColorBrush brush = new SolidColorBrush(color);
+                btn_bottom_blank2.Background = brush;
+                count++;
+            }
+            else if (btn_bottom_blank3.Background == Brushes.Black && count == 5)
+            {
+                SolidColorBrush brush = new SolidColorBrush(color);
+                btn_bottom_blank3.Background = brush;
+                count++;
+            }
+            else if (btn_bottom_blank4.Background == Brushes.Black && count == 6)
+            {
+                SolidColorBrush brush = new SolidColorBrush(color);
+                btn_bottom_blank4.Background = brush;
+                count++;
+            }
+            else
+            {
+                btn_top_blank1.Background = Brushes.Black;
+                btn_top_blank2.Background = Brushes.Black;
+                btn_top_blank3.Background = Brushes.Black;
+                btn_top_blank4.Background = Brushes.Black;
+                btn_bottom_blank1.Background = Brushes.Black;
+                btn_bottom_blank2.Background = Brushes.Black;
+                btn_bottom_blank3.Background = Brushes.Black;
+                btn_bottom_blank4.Background = Brushes.Black;
+                count = 0;
+            }
+        }
     }
 }
