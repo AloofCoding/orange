@@ -21,3 +21,5 @@ C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Deb
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level05.baml
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level07.g.cs
 C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level07.baml
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\bin\Debug\System.Drawing.Common.dll
+C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\bin\Debug\System.Drawing.Common.xml

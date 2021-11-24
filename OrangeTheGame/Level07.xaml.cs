@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+
 
 namespace OrangeTheGame
 {
@@ -52,7 +56,86 @@ namespace OrangeTheGame
                 currentPoint = e.GetPosition(this);
 
                 paintSurface.Children.Add(line);
+                //https://stackoverflow.com/questions/1068373/how-to-calculate-the-average-rgb-color-values-of-a-bitmap
+                //https://stackoverflow.com/questions/624534/get-a-bitmap-from-a-wpf-application-window
             }
+        }
+
+
+        private void paintSurface_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp";
+            CreateBitmapFromVisual(Window.GetWindow(paintSurface), path);
+
+            Image image = new Image();
+
+            image.Source = (ImageSource)path;
+            var bitmap = (BitmapSource)image.Source;
+            var color = GetAverageColor(bitmap);
+        }
+
+        //https://stackoverflow.com/questions/5124825/generating-a-screenshot-of-a-wpf-window
+        public static void CreateBitmapFromVisual(Visual target, string fileName)
+        {
+            if (target == null || string.IsNullOrEmpty(fileName))
+            {
+                return;
+            }
+
+            Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
+
+            RenderTargetBitmap renderTarget = new RenderTargetBitmap((Int32)bounds.Width, (Int32)bounds.Height, 96, 96, PixelFormats.Pbgra32);
+
+            DrawingVisual visual = new DrawingVisual();
+
+            using (DrawingContext context = visual.RenderOpen())
+            {
+                VisualBrush visualBrush = new VisualBrush(target);
+                context.DrawRectangle(visualBrush, null, new Rect(new Point(), bounds.Size));
+            }
+
+            renderTarget.Render(visual);
+            PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
+            bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
+            using (Stream stm = File.Create(fileName))
+            {
+                bitmapEncoder.Save(stm);
+            }
+        }
+
+        //https://stackoverflow.com/questions/29837719/get-average-rgb-values-from-picture-displayed-inside-image-control-in-vb-net
+        public Color GetAverageColor(BitmapSource bitmap)
+        {
+            var format = bitmap.Format;
+
+            if (format != PixelFormats.Bgr24 &&
+                format != PixelFormats.Bgr32 &&
+                format != PixelFormats.Bgra32 &&
+                format != PixelFormats.Pbgra32)
+            {
+                throw new InvalidOperationException("BitmapSource must have Bgr24, Bgr32, Bgra32 or Pbgra32 format");
+            }
+
+            var width = bitmap.PixelWidth;
+            var height = bitmap.PixelHeight;
+            var numPixels = width * height;
+            var bytesPerPixel = format.BitsPerPixel / 8;
+            var pixelBuffer = new byte[numPixels * bytesPerPixel];
+
+            bitmap.CopyPixels(pixelBuffer, width * bytesPerPixel, 0);
+
+            long blue = 0;
+            long green = 0;
+            long red = 0;
+
+            for (int i = 0; i < pixelBuffer.Length; i += bytesPerPixel)
+            {
+                blue += pixelBuffer[i];
+                green += pixelBuffer[i + 1];
+                red += pixelBuffer[i + 2];
+            }
+
+            return Color.FromRgb((byte)(red / numPixels), (byte)(green / numPixels), (byte)(blue / numPixels));
         }
     }
 }
