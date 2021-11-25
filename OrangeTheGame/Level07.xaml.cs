@@ -64,14 +64,29 @@ namespace OrangeTheGame
 
         private void paintSurface_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp";
+            var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp");
             CreateBitmapFromVisual(Window.GetWindow(paintSurface), path);
 
             Image image = new Image();
 
-            image.Source = (ImageSource)path;
+            //image.Source = (ImageSource)path;
+
+            //https://stackoverflow.com/questions/350027/setting-wpf-image-source-in-code
+            BitmapImage logo = new BitmapImage();
+            logo.BeginInit();
+            logo.UriSource = new Uri(path);
+            logo.EndInit();
+
+            image.Source = logo;
+
             var bitmap = (BitmapSource)image.Source;
             var color = GetAverageColor(bitmap);
+
+            MessageBox.Show(color.ToString());
+            if (color.ToString().Equals("#FFFE8E02"))
+            {
+                MessageBox.Show("Equals");
+            }
         }
 
         //https://stackoverflow.com/questions/5124825/generating-a-screenshot-of-a-wpf-window
