@@ -56,9 +56,10 @@ namespace OrangeTheGame
                 UpdateLayout();
                 Thread.Sleep(1000);
                 //MessageBox.Show("Level completed");          
-                this.Close();
+                
                 Level03 level = new Level03();
-                level.ShowDialog();
+                level.Show();
+                this.Close();
             }
         }
     }

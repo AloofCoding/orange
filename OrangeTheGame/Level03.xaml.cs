@@ -59,9 +59,10 @@ namespace OrangeTheGame
                 //level finished
                 //MessageBox.Show("Finished lv3");
 
-                this.Close();
+                
                 Level05 level = new Level05();
                 level.Show();
+                this.Close();
             }
         }
     }

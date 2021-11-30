@@ -78,9 +78,10 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                this.Close();
+                
                 Level07 level = new Level07();
                 level.Show();
+                this.Close();
             }
         }
     }

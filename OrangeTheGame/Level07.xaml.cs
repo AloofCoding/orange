@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using System.Threading;
 
 
 namespace OrangeTheGame
@@ -82,11 +83,22 @@ namespace OrangeTheGame
             var bitmap = (BitmapSource)image.Source;
             var color = GetAverageColor(bitmap);
 
-            MessageBox.Show(color.ToString());
+            //MessageBox.Show(color.ToString());
             if (color.ToString().Equals("#FFFE8E02"))
             {
-                MessageBox.Show("Equals");
+                //MessageBox.Show("Equals");
+                waitFinished();
+
+                this.Close();
             }
+        }
+
+        private async void waitFinished()
+        {
+            await Task.Run(() =>
+            {
+                Thread.Sleep(1000);
+            });
         }
 
         //https://stackoverflow.com/questions/5124825/generating-a-screenshot-of-a-wpf-window
