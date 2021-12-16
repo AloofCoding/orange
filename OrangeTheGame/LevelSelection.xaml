@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
         Title="LevelSelection" Height="650" Width="1155"
-        Background="#FF8F02" WindowStartupLocation="CenterScreen">
+        Background="#FF8F02"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
 
     <UserControl>
         <UserControl.Resources>

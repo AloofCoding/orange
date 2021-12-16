@@ -27,7 +27,7 @@ namespace OrangeTheGame
 
         public string hexstring;
 
-        private void iup_hex2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        private async void iup_hex2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             if(!(iup_hex1 == null) && !(iup_hex2 == null))
             {
@@ -37,8 +37,16 @@ namespace OrangeTheGame
                 this.Background = myBrush;
                 if (hexstring.Equals("#FF8F02") && hexstring != null)
                 {
-                    MessageBox.Show("Level cleared! Our colour code is #FF8F02!");
-                    Thread.Sleep(1500);
+                    //MessageBox.Show("Level cleared! Our colour code is #FF8F02!");
+
+                    await Task.Run(() =>
+                    {
+                        Thread.Sleep(1000);
+                    });
+
+                    //Thread.Sleep(1000);
+                    Level04 l4 = new Level04();
+                    l4.ShowDialog();
                     this.Close();
                 }
             }          

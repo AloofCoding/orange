@@ -27,10 +27,10 @@ namespace OrangeTheGame
 
         private void btn_startGame_Click(object sender, RoutedEventArgs e)
         {
-            //loading level selection screen
-            this.Hide();
+            //loading level selection screen           
             LevelSelection ls = new LevelSelection();
-            ls.Show();
+            ls.ShowDialog();
+            this.Close();
         }
     }
 }

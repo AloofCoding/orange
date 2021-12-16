@@ -26,22 +26,9 @@ namespace OrangeTheGame
             InitializeComponent();
         }
 
-        private async void colorpicker_SelectedColorChanged(object sender, RoutedPropertyChangedEventArgs<Color?> e)
+        private void Rectangle_MouseEnter(object sender, MouseEventArgs e)
         {
-            //System.Windows.MessageBox.Show(colorpicker.SelectedColor.Value.ToString());
-            if (colorpicker.SelectedColor.Value.ToString().Equals("#FFFF8F02"))
-            {
-                System.Windows.MessageBox.Show("'" + colorpicker.SelectedColor.Value.ToString() + "' is the right anwser");
-                await Task.Run(() =>
-                {
-                    Thread.Sleep(1000);
-                });
-
-                Thread.Sleep(500);
-                this.Close();
-                LevelSelection ls = new LevelSelection();
-                ls.ShowDialog();
-            }
+            pBar.Value += 1;
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,7 +29,7 @@ namespace OrangeTheGame
 
         Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
 
-        private void btn_top_Click(object sender, RoutedEventArgs e)
+        private async void btn_top_Click(object sender, RoutedEventArgs e)
         {
             if (btn_top_blank1.Background == Brushes.Black)
             {
@@ -52,7 +53,17 @@ namespace OrangeTheGame
             {
                 SolidColorBrush brush = new SolidColorBrush(color);
                 btn_top_blank4.Background = brush;
-                MessageBox.Show("Level cleared!");
+                //MessageBox.Show("Level cleared!");
+
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(1000);
+                });
+
+                //Thread.Sleep(1000);;
+                LevelSelection ls = new LevelSelection();
+                ls.ShowDialog();
+                this.Close();
             }
             else
             {
