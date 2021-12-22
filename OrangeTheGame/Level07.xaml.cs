@@ -89,6 +89,8 @@ namespace OrangeTheGame
                 //MessageBox.Show("Equals");
                 waitFinished();
 
+                Level09 level = new Level09();
+                level.Show();
                 this.Close();
             }
         }
