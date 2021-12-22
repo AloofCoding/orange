@@ -83,6 +83,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Level08.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LevelSelection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +107,9 @@
     </Compile>
     <Compile Include="Level06.xaml.cs">
       <DependentUpon>Level06.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Level08.xaml.cs">
+      <DependentUpon>Level08.xaml</DependentUpon>
     </Compile>
     <Compile Include="LevelSelection.xaml.cs">
       <DependentUpon>LevelSelection.xaml</DependentUpon>

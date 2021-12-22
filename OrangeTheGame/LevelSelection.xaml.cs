@@ -49,5 +49,12 @@ namespace OrangeTheGame
             l6.ShowDialog();
             this.Close();
         }
+
+        private void btn_Level8_Click(object sender, RoutedEventArgs e)
+        {
+            Level08 l8 = new Level08();
+            l8.ShowDialog();
+            this.Close();
+        }
     }
 }

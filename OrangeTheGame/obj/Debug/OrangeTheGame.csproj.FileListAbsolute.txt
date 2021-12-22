@@ -46,3 +46,5 @@ C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level06.baml
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\LevelSelection.baml
 C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\MainWindow.baml
+C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level08.g.cs
+C:\Users\andreas.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\Level08.baml

@@ -47,7 +47,7 @@
             <Button x:Name="btn_Level5" Style="{StaticResource LevelsButtonStyle}" Content="5" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="264,241,248,248"/>
             <Button x:Name="btn_Level6" Style="{StaticResource LevelsButtonStyle}" Content="6" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="472,241,40,248" Click="btn_Level6_Click"/>
             <Button x:Name="btn_Level7" Style="{StaticResource LevelsButtonStyle}" Content="7" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="40,449,472,40"/>
-            <Button x:Name="btn_Level8" Style="{StaticResource LevelsButtonStyle}" Content="8" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="264,449,248,40"/>
+            <Button x:Name="btn_Level8" Style="{StaticResource LevelsButtonStyle}" Content="8" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="264,449,248,40" Click="btn_Level8_Click"/>
             <Button x:Name="btn_Level9" Style="{StaticResource LevelsButtonStyle}" Content="9" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="472,449,40,40"/>
         </Grid>
     </UserControl>
