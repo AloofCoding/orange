@@ -8,7 +8,7 @@
         Title="Level08" Height="450" Width="800"
         Background="#FF8F02"
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid>
+    <Grid x:Name="grid_l8">
         <!--<Button x:Name="btn_1" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" Width="70" Height="70" Background="#CE7300" BorderThickness="0" Click="btn_1_Click"/>-->
     </Grid>
 </Window>
