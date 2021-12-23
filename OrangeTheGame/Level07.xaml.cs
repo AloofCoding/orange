@@ -24,6 +24,8 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level07 : Window
     {
+        //ToDo: Edit the path to save temp.bmp to a real temporary folder and delete temp.bmp after finishing the level
+        
         //https://stackoverflow.com/questions/16037753/wpf-drawing-on-canvas-with-mouse-events
         Point currentPoint = new Point();
 
