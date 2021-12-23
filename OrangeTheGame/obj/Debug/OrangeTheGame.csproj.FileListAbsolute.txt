@@ -1,7 +1,0 @@
-C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.csproj.AssemblyReference.cache
-C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\MainWindow.g.cs
-C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\App.g.cs
-C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame_MarkupCompile.cache
-C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame_MarkupCompile.lref
-C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.exe
-C:\Users\christoph.steiner\Source\Repos\AloofCoding\orange\OrangeTheGame\obj\Debug\OrangeTheGame.pdb
