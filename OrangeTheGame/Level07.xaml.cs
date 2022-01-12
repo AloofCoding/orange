@@ -85,11 +85,24 @@ namespace OrangeTheGame
             var bitmap = (BitmapSource)image.Source;
             var color = GetAverageColor(bitmap);
 
+            //if (logo.UriSource!=null||image.Source!=null)
+            //{
+            //    MessageBox.Show(logo.UriSource.ToString() /*+ "\nImage: " + image.Source.ToString()*/);
+
+            //}
             //MessageBox.Show(color.ToString());
             if (color.ToString().Equals("#FFFE8E02"))
             {
+
                 //MessageBox.Show("Equals");
                 waitFinished();
+
+                bitmap = null;
+                logo = null;
+
+                image.Source = null;
+
+                File.Delete(path);
 
                 Level09 level = new Level09();
                 level.Show();
@@ -106,6 +119,11 @@ namespace OrangeTheGame
         }
 
         //https://stackoverflow.com/questions/5124825/generating-a-screenshot-of-a-wpf-window
+        /// <summary>
+        /// Saves the current window as .bmp to the provided path
+        /// </summary>
+        /// <param name="target">What image is saved</param>
+        /// <param name="fileName">path where the image will be stored</param>
         public static void CreateBitmapFromVisual(Visual target, string fileName)
         {
             if (target == null || string.IsNullOrEmpty(fileName))
@@ -131,6 +149,9 @@ namespace OrangeTheGame
             using (Stream stm = File.Create(fileName))
             {
                 bitmapEncoder.Save(stm);
+                stm.Flush();
+                stm.Close();
+                stm.Dispose();
             }
         }
 
