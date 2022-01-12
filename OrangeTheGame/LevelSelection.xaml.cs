@@ -32,28 +32,28 @@ namespace OrangeTheGame
         private void btn_Level2_Click(object sender, RoutedEventArgs e)
         {           
             Level02 l2 = new Level02();
-            l2.ShowDialog();
+            l2.Show();
             this.Close();
         }
 
         private void btn_Level4_Click(object sender, RoutedEventArgs e)
         {
             Level04 l4 = new Level04();
-            l4.ShowDialog();
+            l4.Show();
             this.Close();
         }
 
         private void btn_Level6_Click(object sender, RoutedEventArgs e)
         {
             Level06 l6 = new Level06();
-            l6.ShowDialog();
+            l6.Show();
             this.Close();
         }
 
         private void btn_Level8_Click(object sender, RoutedEventArgs e)
         {
             Level08 l8 = new Level08();
-            l8.ShowDialog();
+            l8.Show();
             this.Close();
         }
     }

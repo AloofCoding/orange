@@ -60,9 +60,12 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
+                btn_bottom.IsEnabled = false;
+                btn_top.IsEnabled = false;
+
                 //Thread.Sleep(1000);;
-                LevelSelection ls = new LevelSelection();
-                ls.ShowDialog();
+                Level08 l8 = new Level08();
+                l8.Show();
                 this.Close();
             }
             else

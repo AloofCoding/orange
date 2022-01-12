@@ -39,6 +39,9 @@ namespace OrangeTheGame
                 {
                     //MessageBox.Show("Level cleared! Our colour code is #FF8F02!");
 
+                    iup_hex1.IsEnabled = false;
+                    iup_hex2.IsEnabled = false;
+
                     await Task.Run(() =>
                     {
                         Thread.Sleep(1000);
@@ -46,7 +49,7 @@ namespace OrangeTheGame
 
                     //Thread.Sleep(1000);
                     Level04 l4 = new Level04();
-                    l4.ShowDialog();
+                    l4.Show();
                     this.Close();
                 }
             }          

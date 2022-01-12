@@ -29,7 +29,7 @@ namespace OrangeTheGame
         {
             //loading level selection screen           
             LevelSelection ls = new LevelSelection();
-            ls.ShowDialog();
+            ls.Show();
             this.Close();
         }
     }

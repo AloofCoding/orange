@@ -26,9 +26,23 @@ namespace OrangeTheGame
             InitializeComponent();
         }
 
-        private void Rectangle_MouseEnter(object sender, MouseEventArgs e)
+        private async void Rectangle_MouseEnter(object sender, MouseEventArgs e)
         {
             pBar.Value += 1;
+
+            if(pBar.Value == 100)
+            {
+                rect_pBar.IsEnabled = false;
+
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(1000);
+                });
+
+                Level06 l6 = new Level06();
+                l6.Show();
+                this.Close();
+            }
         }
     }
 }
