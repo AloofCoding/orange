@@ -24,10 +24,11 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level07 : Window
     {
-        //ToDo: Edit the path to save temp.bmp to a real temporary folder and delete temp.bmp after finishing the level
+        //ToDo: Edit the path to save temp.bmp to a real temporary folder
         
         //https://stackoverflow.com/questions/16037753/wpf-drawing-on-canvas-with-mouse-events
         Point currentPoint = new Point();
+        string path;
 
         public Level07()
         {
@@ -37,7 +38,9 @@ namespace OrangeTheGame
         private void Canvas_MouseDown_1(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (e.ButtonState == MouseButtonState.Pressed)
+            {
                 currentPoint = e.GetPosition(this);
+            }
         }
 
         private void Canvas_MouseMove_1(object sender, System.Windows.Input.MouseEventArgs e)
@@ -64,15 +67,17 @@ namespace OrangeTheGame
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void paintSurface_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp");
+            path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp");
             CreateBitmapFromVisual(Window.GetWindow(paintSurface), path);
 
             Image image = new Image();
-
-            //image.Source = (ImageSource)path;
 
             //https://stackoverflow.com/questions/350027/setting-wpf-image-source-in-code
             BitmapImage logo = new BitmapImage();
@@ -85,24 +90,14 @@ namespace OrangeTheGame
             var bitmap = (BitmapSource)image.Source;
             var color = GetAverageColor(bitmap);
 
-            //if (logo.UriSource!=null||image.Source!=null)
-            //{
-            //    MessageBox.Show(logo.UriSource.ToString() /*+ "\nImage: " + image.Source.ToString()*/);
-
-            //}
-            //MessageBox.Show(color.ToString());
             if (color.ToString().Equals("#FFFE8E02"))
             {
-
-                //MessageBox.Show("Equals");
                 waitFinished();
 
-                bitmap = null;
-                logo = null;
-
-                image.Source = null;
-
-                File.Delete(path);
+                //bitmap = null;
+                //logo = null;
+                //image.Source = null;
+                //image = null;
 
                 Level09 level = new Level09();
                 level.Show();
@@ -118,9 +113,9 @@ namespace OrangeTheGame
             });
         }
 
-        //https://stackoverflow.com/questions/5124825/generating-a-screenshot-of-a-wpf-window
         /// <summary>
         /// Saves the current window as .bmp to the provided path
+        /// https://stackoverflow.com/questions/5124825/generating-a-screenshot-of-a-wpf-window
         /// </summary>
         /// <param name="target">What image is saved</param>
         /// <param name="fileName">path where the image will be stored</param>
@@ -146,16 +141,18 @@ namespace OrangeTheGame
             renderTarget.Render(visual);
             PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
             bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
+
             using (Stream stm = File.Create(fileName))
             {
                 bitmapEncoder.Save(stm);
-                stm.Flush();
-                stm.Close();
-                stm.Dispose();
             }
         }
 
-        //https://stackoverflow.com/questions/29837719/get-average-rgb-values-from-picture-displayed-inside-image-control-in-vb-net
+        /// <summary>
+        /// https://stackoverflow.com/questions/29837719/get-average-rgb-values-from-picture-displayed-inside-image-control-in-vb-net
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
         public Color GetAverageColor(BitmapSource bitmap)
         {
             var format = bitmap.Format;
@@ -188,6 +185,16 @@ namespace OrangeTheGame
             }
 
             return Color.FromRgb((byte)(red / numPixels), (byte)(green / numPixels), (byte)(blue / numPixels));
+        }
+
+        private async void Window_Closed(object sender, EventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                Thread.Sleep(5000);
+            });
+
+            File.Delete(path);
         }
     }
 }
