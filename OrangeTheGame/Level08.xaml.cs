@@ -34,23 +34,28 @@ namespace OrangeTheGame
             Color color = (Color)ColorConverter.ConvertFromString("#CE7300");
             SolidColorBrush brush = new SolidColorBrush(color);
 
-            Random rnd_x = new Random();
-            int x_coord = rnd_x.Next(0, 714);
+            //Random rnd_x = new Random();
+            //int x_coord = rnd_x.Next(0, 714);
 
-            Random rnd_y = new Random();
-            int y_coord = rnd_y.Next(0, 314);
+            //Random rnd_y = new Random();
+            //int y_coord = rnd_y.Next(0, 314);
 
-            Button btn_1 = new Button();
-            btn_1.Width = 70;
-            btn_1.Height = 70;
-            btn_1.BorderThickness = new Thickness(0, 0, 0, 0);
-            btn_1.Background = brush;
-            btn_1.Margin = new Thickness(x_coord, y_coord, 714 - x_coord, 314 - y_coord);
-            btn_1.Click += Btn_1_Click;
-            grid_l8.Children.Add(btn_1);
+            Button btn = new Button();
+            //btn.Name = btn_name;
+            btn.Width = 50;
+            btn.Height = 50;
+            btn.Background = brush;
+            //btn.BorderThickness = new Thickness(0, 0, 0, 0);
+            //btn.Margin = new Thickness(x_coord, y_coord, 714 - x_coord, 314 - y_coord);
+            btn.Click += btn_Click;
+            btn.SetValue(Grid.RowProperty, new Random().Next(0, grid_l8.RowDefinitions.Count()));
+            btn.SetValue(Grid.ColumnProperty, new Random().Next(0, grid_l8.ColumnDefinitions.Count()));
+            grid_l8.Children.Add(btn);
+            //MessageBox.Show(x_coord + " | " + y_coord + " || " + (714 - x_coord) + " | " + (314 - y_coord));
+            //i++;
         }
 
-        private void Btn_1_Click(object sender, RoutedEventArgs e)
+        private void btn_Click(object sender, RoutedEventArgs e)
         {
             create_button();
 
@@ -71,7 +76,7 @@ namespace OrangeTheGame
             btn_2.BorderThickness = new Thickness(0, 0, 0, 0);
             btn_2.Background = brush;
             btn_2.Margin = new Thickness(x_coord, y_coord,0,0, 714 - x_coord, 314 - y_coord);
-            btn_2.Click += Btn_1_Click;
+            btn_2.Click += btn_Click;
             grid_l8.Children.Add(btn_2);
             */
         }
