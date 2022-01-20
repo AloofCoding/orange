@@ -29,12 +29,15 @@ namespace OrangeTheGame
 
         private async void iup_hex2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
+            //ensures the code is only executed when the integer up down controls exist on the form
             if(!(iup_hex1 == null) && !(iup_hex2 == null))
             {
                 hexstring = "#FF" + iup_hex1.Value.ToString() + "F" + iup_hex2.Value.ToString() + "2";
                 Color color = (Color)ColorConverter.ConvertFromString(hexstring);
                 SolidColorBrush myBrush = new SolidColorBrush(color);
                 this.Background = myBrush;
+                
+                //checks if the users values + the pre written letters match the correct string
                 if (hexstring.Equals("#FF8F02") && hexstring != null)
                 {
                     //MessageBox.Show("Level cleared! Our colour code is #FF8F02!");
