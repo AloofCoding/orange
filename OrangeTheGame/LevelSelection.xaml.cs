@@ -24,6 +24,8 @@ namespace OrangeTheGame
             InitializeComponent();
         }
 
+        //opens the prefered level of the user and closes the level selection
+        //every button does literally the same
         private void btn_Level1_Click(object sender, RoutedEventArgs e)
         {
             Level01 level = new Level01();
