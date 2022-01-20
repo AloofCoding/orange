@@ -26,6 +26,8 @@ namespace OrangeTheGame
             create_button();
         }
 
+        //currently under construction since it still doesn't work was planned
+        //creates a button in a random position in the grid
         private void create_button()
         {
             //int i = 1;
@@ -55,6 +57,8 @@ namespace OrangeTheGame
             //i++;
         }
 
+        //spwans another button on a random position on the grid
+        //UNDER CONSTRUCTION
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             create_button();
