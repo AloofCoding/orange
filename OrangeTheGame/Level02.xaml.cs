@@ -48,8 +48,8 @@ namespace OrangeTheGame
                     });
 
                     //Thread.Sleep(1000);
-                    Level04 l4 = new Level04();
-                    l4.Show();
+                    Level03 level = new Level03();
+                    level.Show();
                     this.Close();
                 }
             }          

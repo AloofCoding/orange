@@ -79,7 +79,7 @@ namespace OrangeTheGame
                 });
 
                 
-                Level07 level = new Level07();
+                Level06 level = new Level06();
                 level.Show();
                 this.Close();
             }

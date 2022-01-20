@@ -39,8 +39,8 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                Level06 l6 = new Level06();
-                l6.Show();
+                Level05 level = new Level05();
+                level.Show();
                 this.Close();
             }
         }

@@ -24,10 +24,11 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level07 : Window
     {
-        //ToDo: Edit the path to save temp.bmp to a real temporary folder and delete temp.bmp after finishing the level
-        
+        //ToDo: Edit the path to save temp.bmp to a real temporary folder
+
         //https://stackoverflow.com/questions/16037753/wpf-drawing-on-canvas-with-mouse-events
-        Point currentPoint = new Point();
+        System.Windows.Point currentPoint = new System.Windows.Point();
+        string path;
 
         public Level07()
         {
@@ -37,7 +38,9 @@ namespace OrangeTheGame
         private void Canvas_MouseDown_1(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (e.ButtonState == MouseButtonState.Pressed)
+            {
                 currentPoint = e.GetPosition(this);
+            }
         }
 
         private void Canvas_MouseMove_1(object sender, System.Windows.Input.MouseEventArgs e)
@@ -48,7 +51,7 @@ namespace OrangeTheGame
                 //polyLine.Stroke = new SolidColorBrush(Colors.AliceBlue);
                 //polyLine.StrokeThickness = 10;
                 Line line = new Line();
-                SolidColorBrush myBrush = new SolidColorBrush(Color.FromRgb(255,143,2));
+                SolidColorBrush myBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 143, 2));
                 line.Stroke = myBrush;
                 line.StrokeThickness = 5;
                 line.X1 = currentPoint.X;
@@ -64,15 +67,17 @@ namespace OrangeTheGame
             }
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void paintSurface_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp");
+            path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp");
             CreateBitmapFromVisual(Window.GetWindow(paintSurface), path);
 
-            Image image = new Image();
-
-            //image.Source = (ImageSource)path;
+            System.Windows.Controls.Image image = new System.Windows.Controls.Image();
 
             //https://stackoverflow.com/questions/350027/setting-wpf-image-source-in-code
             BitmapImage logo = new BitmapImage();
@@ -85,13 +90,17 @@ namespace OrangeTheGame
             var bitmap = (BitmapSource)image.Source;
             var color = GetAverageColor(bitmap);
 
-            //MessageBox.Show(color.ToString());
-            if (color.ToString().Equals("#FFFE8E02"))
+            if (/*color.ToString().Equals("#FFFE8E02")*/
+                color.R.Equals(254) && color.G.Equals(142) && color.B.Equals(2))
             {
-                //MessageBox.Show("Equals");
                 waitFinished();
 
-                Level09 level = new Level09();
+                //bitmap = null;
+                //logo = null;
+                //image.Source = null;
+                //image = null;
+
+                LevelSelection level = new LevelSelection();
                 level.Show();
                 this.Close();
             }
@@ -105,7 +114,12 @@ namespace OrangeTheGame
             });
         }
 
-        //https://stackoverflow.com/questions/5124825/generating-a-screenshot-of-a-wpf-window
+        /// <summary>
+        /// Saves the current window as .bmp to the provided path
+        /// https://stackoverflow.com/questions/5124825/generating-a-screenshot-of-a-wpf-window
+        /// </summary>
+        /// <param name="target">What image is saved</param>
+        /// <param name="fileName">path where the image will be stored</param>
         public static void CreateBitmapFromVisual(Visual target, string fileName)
         {
             if (target == null || string.IsNullOrEmpty(fileName))
@@ -122,20 +136,25 @@ namespace OrangeTheGame
             using (DrawingContext context = visual.RenderOpen())
             {
                 VisualBrush visualBrush = new VisualBrush(target);
-                context.DrawRectangle(visualBrush, null, new Rect(new Point(), bounds.Size));
+                context.DrawRectangle(visualBrush, null, new Rect(new System.Windows.Point(), bounds.Size));
             }
 
             renderTarget.Render(visual);
             PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
             bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
+
             using (Stream stm = File.Create(fileName))
             {
                 bitmapEncoder.Save(stm);
             }
         }
 
-        //https://stackoverflow.com/questions/29837719/get-average-rgb-values-from-picture-displayed-inside-image-control-in-vb-net
-        public Color GetAverageColor(BitmapSource bitmap)
+        /// <summary>
+        /// https://stackoverflow.com/questions/29837719/get-average-rgb-values-from-picture-displayed-inside-image-control-in-vb-net
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
+        public System.Drawing.Color GetAverageColor(BitmapSource bitmap)
         {
             var format = bitmap.Format;
 
@@ -166,7 +185,17 @@ namespace OrangeTheGame
                 red += pixelBuffer[i + 2];
             }
 
-            return Color.FromRgb((byte)(red / numPixels), (byte)(green / numPixels), (byte)(blue / numPixels));
+            return System.Drawing.Color.FromArgb((byte)(red / numPixels), (byte)(green / numPixels), (byte)(blue / numPixels));
+        }
+
+        private async void Window_Closed(object sender, EventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                Thread.Sleep(5000);
+            });
+
+            File.Delete(path);
         }
     }
 }
