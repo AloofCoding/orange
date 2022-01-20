@@ -20,14 +20,20 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level03 : Window
     {
-        private int amountOfClicks;
+        private int filledRectangles;
 
         public Level03()
         {
             InitializeComponent();
-            amountOfClicks = 0;
+            filledRectangles = 0;
         }
 
+        /// <summary>
+        /// If a rectangle is clicked upon, it changes its color from black to #FF8F02
+        /// When all 5 rectangles are covered, the level is finished
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void rect_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Rectangle rect = sender as Rectangle;
@@ -35,9 +41,11 @@ namespace OrangeTheGame
             SolidColorBrush myBrush = new SolidColorBrush(color);
 
             if (!rect.Fill.ToString().Equals(myBrush.ToString()))
+            {
                 rect.Fill = myBrush;
+            }
 
-            amountOfClicks++;
+            filledRectangles++;
 
             checkIfFinished();
         }
@@ -48,17 +56,13 @@ namespace OrangeTheGame
 
             string myBrush = new SolidColorBrush(color).ToString();
 
-            if (amountOfClicks == 5)
+            if (filledRectangles == 5)
             {
                 //fkue
                 await Task.Run(() =>
                 {
                     Thread.Sleep(1000);
                 });
-
-                //level finished
-                //MessageBox.Show("Finished lv3");
-
                 
                 Level04 level = new Level04();
                 level.Show();

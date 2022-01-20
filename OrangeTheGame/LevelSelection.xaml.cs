@@ -74,7 +74,7 @@ namespace OrangeTheGame
         }
         private void btn_Level8_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This level is not finished yet.");
+            MessageBox.Show("This level is currently under construction.");
 
             //Level08 level = new Level08();
             //level.Show();
@@ -83,7 +83,7 @@ namespace OrangeTheGame
 
         private void btn_Level9_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This level is not finished yet.");
+            MessageBox.Show("This level is currently under construction.");
 
             //Level09 level = new Level09();
             //level.Show();

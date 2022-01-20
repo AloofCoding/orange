@@ -43,6 +43,12 @@ namespace OrangeTheGame
             }
         }
 
+        /// <summary>
+        /// if the mouse is pressed while being on the drawing canvas (whole screen),
+        /// the mouse works as orange brush to color the screen in our beloved orange
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Canvas_MouseMove_1(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -68,7 +74,9 @@ namespace OrangeTheGame
         }
 
         /// <summary>
-        /// 
+        /// When the user does not click on the mouse anymore, the new created image gets stored to a .bmp file,
+        /// which then gets read into the program again to check if the average color is our specified color.
+        /// The file gets deleted after the window is closed.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -143,10 +151,18 @@ namespace OrangeTheGame
             PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
             bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
 
-            using (Stream stm = File.Create(fileName))
+
+            try
             {
-                bitmapEncoder.Save(stm);
+                using (Stream stm = File.Create(fileName))
+                {
+                    bitmapEncoder.Save(stm);
+                }
             }
+            catch
+            {
+                Thread.Sleep(500);
+            } 
         }
 
         /// <summary>
@@ -188,6 +204,11 @@ namespace OrangeTheGame
             return System.Drawing.Color.FromArgb((byte)(red / numPixels), (byte)(green / numPixels), (byte)(blue / numPixels));
         }
 
+        /// <summary>
+        /// Deleting of the created file when the current window is closed.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Window_Closed(object sender, EventArgs e)
         {
             await Task.Run(() =>
