@@ -29,6 +29,7 @@ namespace OrangeTheGame
 
         Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
 
+        //pressing the top button fills the next button on the upper line, but only if it's the one in the right order
         private async void btn_top_Click(object sender, RoutedEventArgs e)
         {
             if (btn_top_blank1.Background == Brushes.Black)
@@ -70,6 +71,7 @@ namespace OrangeTheGame
             }
             else
             {
+                //resetting the users progress if they press the wrong button
                 btn_top_blank1.Background = Brushes.Black;
                 btn_top_blank2.Background = Brushes.Black;
                 btn_top_blank3.Background = Brushes.Black;
@@ -82,6 +84,7 @@ namespace OrangeTheGame
             }
         }
 
+        //pressing the lower button fills the next button from the bottom line, but only if it's the one in the correct order
         private void btn_bottom_Click(object sender, RoutedEventArgs e)
         {
             if (btn_bottom_blank1.Background == Brushes.Black && count == 1)
@@ -110,6 +113,7 @@ namespace OrangeTheGame
             }
             else
             {
+                //resetting the users progress if they press the wrong button
                 btn_top_blank1.Background = Brushes.Black;
                 btn_top_blank2.Background = Brushes.Black;
                 btn_top_blank3.Background = Brushes.Black;
