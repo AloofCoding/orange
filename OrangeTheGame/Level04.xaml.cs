@@ -25,11 +25,13 @@ namespace OrangeTheGame
         {
             InitializeComponent();
         }
-
+        
+        //the user just have to hover across the rectangle to raise the value of the progress bar
         private async void Rectangle_MouseEnter(object sender, MouseEventArgs e)
         {
             pBar.Value += 1;
 
+            //if the progress bar reaches the maximum value the user has cleared the level
             if(pBar.Value == 100)
             {
                 rect_pBar.IsEnabled = false;
