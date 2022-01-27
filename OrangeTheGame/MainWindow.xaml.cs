@@ -33,7 +33,7 @@ namespace OrangeTheGame
             // playing a sound effect
             lbl_titleOnStartingScreen.Visibility = Visibility.Hidden;
             btn_startGame.Visibility = Visibility.Hidden;
-            Level07 level = new Level07();
+            Level03 level = new Level03();
             this.Close();
             level.Show();
         }

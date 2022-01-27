@@ -34,10 +34,12 @@ namespace OrangeTheGame
             Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
             SolidColorBrush myBrush = new SolidColorBrush(color);
 
-            if (!rect.Fill.ToString().Equals(myBrush.ToString()))
+            if (!rect.Fill.ToString().Equals(color.ToString()))
+            {
                 rect.Fill = myBrush;
 
-            amountOfClicks++;
+                amountOfClicks++;
+            }               
 
             checkIfFinished();
         }
