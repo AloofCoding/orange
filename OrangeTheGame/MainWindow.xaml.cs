@@ -33,9 +33,23 @@ namespace OrangeTheGame
             // playing a sound effect
             lbl_titleOnStartingScreen.Visibility = Visibility.Hidden;
             btn_startGame.Visibility = Visibility.Hidden;
-            Level03 level = new Level03();
+            Level01 level = new Level01();
             this.Close();
             level.Show();
+        }
+
+        private void btn_music_Click(object sender, RoutedEventArgs e)
+        {
+            if(btn_music.Content.ToString().Equals("Music: On"))
+            {
+                btn_music.Content = "Music: Off";
+                //stop music
+            }
+            else
+            {
+                btn_music.Content = "Music: On";
+                //start music again
+            }
         }
     }
 }
