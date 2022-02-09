@@ -27,18 +27,19 @@ namespace OrangeTheGame
             create_button();
         }
 
+        bool[,] arr_grid = new bool[10, 10];
+        int rnd_rows = 0;
+        int rnd_cols = 0;
+
         private void create_button()
         {
             Color color = (Color)ColorConverter.ConvertFromString("#CE7300");
             SolidColorBrush brush = new SolidColorBrush(color);
 
-            int rnd_rows = 0;
-            int rnd_cols = 0;
-
             Button btn = new Button();
 
-            btn.Width = 50;
-            btn.Height = 50;
+            btn.Width = grid_l8.Width/10;
+            btn.Height = grid_l8.Height/10;
             btn.Background = brush;
 
             btn.Click += btn_Click;
@@ -46,23 +47,10 @@ namespace OrangeTheGame
             rnd_rows = new Random().Next(0, grid_l8.RowDefinitions.Count());
             btn.SetValue(Grid.RowProperty, rnd_rows);
 
-            Thread.Sleep(new Random().Next(0,1000));
+            Thread.Sleep(new Random().Next(0,500));
 
             rnd_cols = new Random().Next(0, grid_l8.ColumnDefinitions.Count());
             btn.SetValue(Grid.ColumnProperty, rnd_cols);
-
-            bool[,] arr_grid = new bool[10, 10];
-
-            for (int i = 0; i < 10; i++)
-            {
-                for (int i2 = 0; i2 < 10; i2++)
-                {
-                    arr_grid.SetValue(false, i, i2);
-                }
-            }
-
-            //MessageBox.Show(btn.GetValue(Grid.RowProperty).ToString());
-            //MessageBox.Show(btn.GetValue(Grid.ColumnProperty).ToString());
 
             do
             {
@@ -70,21 +58,23 @@ namespace OrangeTheGame
                 {
                     grid_l8.Children.Add(btn);
                     arr_grid[rnd_cols, rnd_rows] = true;
+                    return;
                 }
                 else
                 {
+                    //MessageBox.Show("Button couldn't be placed.");
+
                     rnd_rows = new Random().Next(0, grid_l8.RowDefinitions.Count());
                     btn.SetValue(Grid.RowProperty, rnd_rows);
 
-                    Thread.Sleep(new Random().Next(0, 1000));
+                    Thread.Sleep(new Random().Next(0, 500));
 
                     rnd_cols = new Random().Next(0, grid_l8.ColumnDefinitions.Count());
                     btn.SetValue(Grid.ColumnProperty, rnd_cols);
-                } 
-            } while (arr_grid[rnd_cols, rnd_rows] == true);
 
-            object table_x = btn.GetValue(Grid.ColumnProperty);
-            object table_y = btn.GetValue(Grid.RowProperty);
+                    //MessageBox.Show(rnd_cols.ToString() + ";" + rnd_rows.ToString());
+                } 
+            } while (true);
         }
 
         private void btn_Click(object sender, RoutedEventArgs e)
