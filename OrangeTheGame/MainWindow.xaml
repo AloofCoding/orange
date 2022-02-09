@@ -48,7 +48,7 @@
             <Label x:Name="lbl_titleOnStartingScreen" Content="Orange" HorizontalAlignment="Center"  Margin="0,0,0,150" VerticalAlignment="Center" Foreground="#CE7300" FontSize="52" FontWeight="Bold"/>
             <Button x:Name="btn_startGame" Style="{StaticResource MyButtonStyle}" Content="Start Game" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Center" Width="160" Height ="40" Background="Transparent" Foreground="#CE7300" BorderThickness="0" Cursor="Hand"
                     FontSize="24" Click="btn_startGame_Click"/>
-            <Button x:Name="btn_music" Style="{StaticResource MyButtonStyle}" Content="Music: On" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Click="btn_music_Click"/>
+            <Button x:Name="btn_music" Style="{StaticResource MyButtonStyle}" Content="Music: On" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="75" Click="btn_music_Click" Cursor="Hand"/>
         </Grid>
     </UserControl>
 </Window>

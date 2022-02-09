@@ -74,6 +74,7 @@ namespace OrangeTheGame
         /// <param name="e"></param>
         private void paintSurface_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            Thread.Sleep(100);
             path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp");
             CreateBitmapFromVisual(Window.GetWindow(paintSurface), path);
 
@@ -104,6 +105,15 @@ namespace OrangeTheGame
                 this.Close();
             }
         }
+
+        private async void waitFinished100()
+        {
+            await Task.Run(() =>
+            {
+                Thread.Sleep(100);
+            });
+        }
+
 
         private async void waitFinished()
         {
