@@ -24,16 +24,22 @@ namespace OrangeTheGame
         {
             InitializeComponent();
 
-            create_button();
+            for (int i = 0; i < 50; i++)
+            {
+                create_button();
+                i++;
+                counter++;
+            }
         }
 
         bool[,] arr_grid = new bool[10, 10];
         int rnd_rows = 0;
         int rnd_cols = 0;
+        int counter = 0;
 
         private void create_button()
         {
-            Color color = (Color)ColorConverter.ConvertFromString("#CE7300");
+            Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
             SolidColorBrush brush = new SolidColorBrush(color);
 
             Button btn = new Button();
@@ -41,8 +47,24 @@ namespace OrangeTheGame
             btn.Width = grid_l8.Width/10;
             btn.Height = grid_l8.Height/10;
             btn.Background = brush;
+            btn.BorderBrush = brush;
 
-            btn.Click += btn_Click;
+            if (counter == 24)
+            {
+                btn.Click += btn_Click;
+
+                Color color2 = (Color)ColorConverter.ConvertFromString("#CE7300");
+                SolidColorBrush brush2 = new SolidColorBrush(color2);
+
+                btn.Background = brush2;
+                btn.BorderBrush = brush2;
+
+                //MessageBox.Show("Click-Event included.");
+            }
+            else if (counter > 24)
+            {
+                btn.Click += btn_Click;
+            }
 
             rnd_rows = new Random().Next(0, grid_l8.RowDefinitions.Count());
             btn.SetValue(Grid.RowProperty, rnd_rows);
@@ -79,7 +101,11 @@ namespace OrangeTheGame
 
         private void btn_Click(object sender, RoutedEventArgs e)
         {
+            //disable click event \/
+            //this.btn_Click(sender, e);
+
             create_button();
+            //btn.IsEnabled = false;
         }
     }
 }
