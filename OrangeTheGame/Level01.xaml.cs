@@ -32,7 +32,7 @@ namespace OrangeTheGame
             byte blue = 0;
             double calculation;
 
-            if ((slider_lv1 != null))
+            if (slider_lv1 != null)
             {
                 if (slider_lv1.Value >= 1)
                 {
@@ -40,11 +40,10 @@ namespace OrangeTheGame
                     green = (byte)Math.Round(calculation, 0);
                     calculation = 2 * (slider_lv1.Value / 255);
                     blue = (byte)Math.Round(calculation, 0);
-                }                
+                }
                 magicBrush.Color = Color.FromRgb((byte)slider_lv1.Value, green, blue);
                 this.Background = magicBrush;
             }
-
         }
 
         private void slider_lv1_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -52,11 +51,9 @@ namespace OrangeTheGame
             if (slider_lv1.Value == 255)
             {
                 //level completed!!
-                //message/sign/sound of success
                 UpdateLayout();
                 Thread.Sleep(1000);
-                //MessageBox.Show("Level completed");          
-                
+
                 Level03 level = new Level03();
                 level.Show();
                 this.Close();

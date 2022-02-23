@@ -52,7 +52,7 @@ namespace OrangeTheGame
                 default:
                     break;
             }
-            checkIfFinished();
+            checkIfFinished(myBrush);
 
             rectToFill = 0;
         }
@@ -62,12 +62,9 @@ namespace OrangeTheGame
             rectToFill += 1;
         }
 
-        private async void checkIfFinished()
+        private async void checkIfFinished(SolidColorBrush myBrush)
         {
-            Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
-            SolidColorBrush myBrush = new SolidColorBrush(color);
-
-            if (   rect_01.Fill.ToString().Equals(myBrush.ToString()) &&
+            if (rect_01.Fill.ToString().Equals(myBrush.ToString()) &&
                    rect_02.Fill.ToString().Equals(myBrush.ToString()) &&
                    rect_03.Fill.ToString().Equals(myBrush.ToString()) &&
                    rect_04.Fill.ToString().Equals(myBrush.ToString()) &&
@@ -78,7 +75,6 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                
                 Level07 level = new Level07();
                 level.Show();
                 this.Close();

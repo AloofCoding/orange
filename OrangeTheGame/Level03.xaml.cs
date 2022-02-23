@@ -20,12 +20,11 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level03 : Window
     {
-        private int amountOfClicks;
+        private int amountOfClicks = 0;
 
         public Level03()
         {
             InitializeComponent();
-            amountOfClicks = 0;
         }
 
         private void rect_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -39,7 +38,7 @@ namespace OrangeTheGame
                 rect.Fill = myBrush;
 
                 amountOfClicks++;
-            }               
+            }
 
             checkIfFinished();
         }
@@ -59,9 +58,7 @@ namespace OrangeTheGame
                 });
 
                 //level finished
-                //MessageBox.Show("Finished lv3");
 
-                
                 Level05 level = new Level05();
                 level.Show();
                 this.Close();
