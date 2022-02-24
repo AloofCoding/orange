@@ -28,15 +28,22 @@ namespace OrangeTheGame
         //Das Programm "[4044] OrangeTheGame.exe" wurde mit Code -1073741819 (0xc0000005) 'Access violation' beendet.
 
 
-        //https://stackoverflow.com/questions/16037753/wpf-drawing-on-canvas-with-mouse-events
+        #region Variables
         Point currentPoint = new Point();
         string path;
+        SolidColorBrush myBrush = new SolidColorBrush(Color.FromRgb(255, 143, 2));
+        #endregion
 
         public Level07()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// https://stackoverflow.com/questions/16037753/wpf-drawing-on-canvas-with-mouse-events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Canvas_MouseDown_1(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (e.ButtonState == MouseButtonState.Pressed)
@@ -45,7 +52,12 @@ namespace OrangeTheGame
             }
         }
 
-        private void Canvas_MouseMove_1(object sender, System.Windows.Input.MouseEventArgs e)
+        /// <summary>
+        /// https://stackoverflow.com/questions/16037753/wpf-drawing-on-canvas-with-mouse-events
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Canvas_MouseMove_1(object sender, MouseEventArgs e)
         {
             try
             {
@@ -55,7 +67,6 @@ namespace OrangeTheGame
                     //polyLine.Stroke = new SolidColorBrush(Colors.AliceBlue);
                     //polyLine.StrokeThickness = 10;
                     Line line = new Line();
-                    SolidColorBrush myBrush = new SolidColorBrush(Color.FromRgb(255, 143, 2));
                     line.Stroke = myBrush;
                     line.StrokeThickness = 5;
                     line.X1 = currentPoint.X;
@@ -69,9 +80,9 @@ namespace OrangeTheGame
                     //https://stackoverflow.com/questions/624534/get-a-bitmap-from-a-wpf-application-window
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Canvas_MouseMove_1");
+                MessageBox.Show("Canvas_MouseMove_1\n"+ex.ToString());
                 throw;
             }
         }
@@ -85,21 +96,11 @@ namespace OrangeTheGame
         {
             try
             {
-                Thread.Sleep(100);
+                //Thread.Sleep(100);
                 path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp");
                 CreateBitmapFromVisual(Window.GetWindow(paintSurface), path);
-
-                Image image = new Image();
-
-                //https://stackoverflow.com/questions/350027/setting-wpf-image-source-in-code
-                BitmapImage logo = new BitmapImage();
-                logo.BeginInit();
-                logo.UriSource = new Uri(path);
-                logo.EndInit();
-
-                image.Source = logo;
-
-                var bitmap = (BitmapSource)image.Source;
+                //MessageBox.Show("Back to 102");
+                var bitmap = SetImageSource(path);
                 var color = GetAverageColor(bitmap);
 
                 if (color.ToString().Equals("#FFFE8E02"))
@@ -117,11 +118,27 @@ namespace OrangeTheGame
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("PaintSurfaceMouseUp");
+                MessageBox.Show("PaintSurfaceMouseUp\n" + ex.ToString());
                 throw;
             }
+        }
+
+        /// <summary>
+        /// https://stackoverflow.com/questions/350027/setting-wpf-image-source-in-code
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        private BitmapSource SetImageSource(string path)
+        {
+            BitmapImage logo = new BitmapImage();
+            logo.BeginInit();
+            logo.UriSource = new Uri(path);
+            logo.EndInit();
+            Image image = new Image();
+            image.Source = logo;
+            return logo;
         }
 
         private async void waitFinished()
@@ -164,6 +181,7 @@ namespace OrangeTheGame
                 bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
 
                 //todo: fix error coming up
+                //error probably because writing of the files is too often/too fast
                 using (Stream stm = File.Create(fileName))
                 {
                     bitmapEncoder.Save(stm);
@@ -171,8 +189,9 @@ namespace OrangeTheGame
             }
             catch (Exception ex)
             {
-                MessageBox.Show("CreateBitmapFromVisual\n"+ex.ToString());
-                Thread.Sleep(500);
+                MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
+                //Thread.Sleep(500);
+                return;
             }
         }
 
@@ -180,7 +199,7 @@ namespace OrangeTheGame
         /// https://stackoverflow.com/questions/1068373/how-to-calculate-the-average-rgb-color-values-of-a-bitmap
         /// </summary>
         /// <param name="bitmap"></param>
-        /// <returns></returns>
+        /// <returns>returns the average color value of the given BitmapSource</returns>
         public Color GetAverageColor(BitmapSource bitmap)
         {
             try
@@ -217,9 +236,9 @@ namespace OrangeTheGame
                 return Color.FromRgb((byte)(red / numPixels), (byte)(green / numPixels), (byte)(blue / numPixels));
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("GetAverageColor()");
+                MessageBox.Show("GetAverageColor()\n" + ex.ToString());
                 throw;
             }
         }
