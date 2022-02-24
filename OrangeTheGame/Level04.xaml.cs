@@ -26,6 +26,11 @@ namespace OrangeTheGame
             InitializeComponent();
         }
 
+        /// <summary>
+        /// raising the progress in the progress bar by 1 every time the mouse enters the shape
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Rectangle_MouseEnter(object sender, MouseEventArgs e)
         {
             pBar.Value += 1;

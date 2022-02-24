@@ -27,6 +27,11 @@ namespace OrangeTheGame
 
         public string hexstring;
 
+        /// <summary>
+        /// changing the background color according to the current set hex color
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void iup_hex2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             if(!(iup_hex1 == null) && !(iup_hex2 == null))

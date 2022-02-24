@@ -52,6 +52,7 @@ namespace OrangeTheGame
 
         private void btn_Level8_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Generating buttons may take a while. Please be patient.", "No need to spam the button.");
             Level08 l8 = new Level08();
             l8.Show();
             this.Close();

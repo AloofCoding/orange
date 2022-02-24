@@ -36,10 +36,16 @@ namespace OrangeTheGame
         int rnd_rows = 0;
         int rnd_cols = 0;
         int counter = 0;
+        int colorcounter = 0;
 
+        Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
+
+        /// <summary>
+        /// ensures every button created is the same and has a unique position
+        /// adds the click event after the 'obstacle' buttons are placed
+        /// </summary>
         private void create_button()
         {
-            Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
             SolidColorBrush brush = new SolidColorBrush(color);
 
             Button btn = new Button();
@@ -99,12 +105,27 @@ namespace OrangeTheGame
             } while (true);
         }
 
+        /// <summary>
+        /// adds another button WITH click event after the start button and further buttons are clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             //disable click event \/
             //this.btn_Click(sender, e);
 
+            SolidColorBrush brush = new SolidColorBrush(color);
+
             create_button();
+
+            if (colorcounter > 1)
+            {
+                foreach (Button b in grid_l8.Children.OfType<Button>())
+                {
+                    b.Background = brush;
+                } 
+            }
             //btn.IsEnabled = false;
         }
     }
