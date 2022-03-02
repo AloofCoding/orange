@@ -29,9 +29,9 @@ namespace OrangeTheGame
 
 
         #region Variables
-        Point currentPoint = new Point();
+        System.Windows.Point currentPoint = new System.Windows.Point();
         string path;
-        SolidColorBrush myBrush = new SolidColorBrush(Color.FromRgb(255, 143, 2));
+        SolidColorBrush myBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 143, 2));
         #endregion
 
         public Level07()
@@ -136,7 +136,7 @@ namespace OrangeTheGame
             logo.BeginInit();
             logo.UriSource = new Uri(path);
             logo.EndInit();
-            Image image = new Image();
+            System.Windows.Controls.Image image = new System.Windows.Controls.Image();
             image.Source = logo;
             return logo;
         }
@@ -173,7 +173,7 @@ namespace OrangeTheGame
                 using (DrawingContext context = visual.RenderOpen())
                 {
                     VisualBrush visualBrush = new VisualBrush(target);
-                    context.DrawRectangle(visualBrush, null, new Rect(new Point(), bounds.Size));
+                    context.DrawRectangle(visualBrush, null, new Rect(new System.Windows.Point(), bounds.Size));
                 }
 
                 renderTarget.Render(visual);
@@ -182,14 +182,14 @@ namespace OrangeTheGame
 
                 //todo: fix error coming up
                 //error probably because writing of the files is too often/too fast
-                using (Stream stm = File.Create(fileName))
+                using (Stream stm = File.Open(fileName, FileMode.OpenOrCreate))
                 {
                     bitmapEncoder.Save(stm);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
+                //MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
                 //Thread.Sleep(500);
                 return;
             }
@@ -200,7 +200,7 @@ namespace OrangeTheGame
         /// </summary>
         /// <param name="bitmap"></param>
         /// <returns>returns the average color value of the given BitmapSource</returns>
-        public Color GetAverageColor(BitmapSource bitmap)
+        public System.Windows.Media.Color GetAverageColor(BitmapSource bitmap)
         {
             try
             {
@@ -233,7 +233,7 @@ namespace OrangeTheGame
                     red += pixelBuffer[i + 2];
                 }
 
-                return Color.FromRgb((byte)(red / numPixels), (byte)(green / numPixels), (byte)(blue / numPixels));
+                return System.Windows.Media.Color.FromRgb((byte)(red / numPixels), (byte)(green / numPixels), (byte)(blue / numPixels));
 
             }
             catch (Exception ex)

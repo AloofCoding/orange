@@ -68,5 +68,15 @@ namespace OrangeTheGame.Properties {
                 return ResourceManager.GetStream("ambient_easy_house_music_129641", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lv7 {
+            get {
+                object obj = ResourceManager.GetObject("lv7", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
