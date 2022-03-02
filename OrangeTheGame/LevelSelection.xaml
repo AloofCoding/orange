@@ -38,7 +38,6 @@
             </Style>
         </UserControl.Resources>
 
-
         <Grid>
             <Button x:Name="btn_Level1" Style="{StaticResource LevelsButtonStyle}" Content="1" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="40,35,472,454" Click="btn_Level1_Click"/>
             <Button x:Name="btn_Level2" Style="{StaticResource LevelsButtonStyle}" Content="2" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="264,35,248,454" Click="btn_Level2_Click"/>

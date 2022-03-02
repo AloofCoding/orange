@@ -27,8 +27,16 @@ namespace OrangeTheGame
             for (int i = 0; i < 50; i++)
             {
                 create_button();
-                i++;
                 counter++;
+            }
+            
+            if (btn_counter == 90)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    create_button();
+                    counter++;
+                }
             }
         }
 
@@ -37,6 +45,8 @@ namespace OrangeTheGame
         int rnd_cols = 0;
         int counter = 0;
         int colorcounter = 0;
+        int btn_counter = 0;
+        int btn_delayed = -1;
 
         Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
 
@@ -54,6 +64,7 @@ namespace OrangeTheGame
             btn.Height = grid_l8.Height/10;
             btn.Background = brush;
             btn.BorderBrush = brush;
+            btn.Tag = btn_counter;
 
             if (counter == 24)
             {
@@ -70,6 +81,7 @@ namespace OrangeTheGame
             else if (counter > 24)
             {
                 btn.Click += btn_Click;
+                colorcounter++;
             }
 
             rnd_rows = new Random().Next(0, grid_l8.RowDefinitions.Count());
@@ -85,6 +97,9 @@ namespace OrangeTheGame
                 if (arr_grid[rnd_cols, rnd_rows] == false)
                 {
                     grid_l8.Children.Add(btn);
+                    //MessageBox.Show(btn_counter.ToString());
+                    btn_counter++;
+                    btn_delayed++;
                     arr_grid[rnd_cols, rnd_rows] = true;
                     return;
                 }
@@ -112,21 +127,26 @@ namespace OrangeTheGame
         /// <param name="e"></param>
         private void btn_Click(object sender, RoutedEventArgs e)
         {
-            //disable click event \/
-            //this.btn_Click(sender, e);
+            //removes click event from clicked button
+            foreach (Button b in grid_l8.Children.OfType<Button>())
+            {
+                if(b.Tag.Equals(btn_delayed))
+                {
+                    b.Click -= btn_Click;
+                }
+            }
 
             SolidColorBrush brush = new SolidColorBrush(color);
 
             create_button();
 
-            if (colorcounter > 1)
+            if (colorcounter >= 1)
             {
                 foreach (Button b in grid_l8.Children.OfType<Button>())
                 {
                     b.Background = brush;
                 } 
             }
-            //btn.IsEnabled = false;
         }
     }
 }
