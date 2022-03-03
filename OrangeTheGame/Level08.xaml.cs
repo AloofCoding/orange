@@ -60,13 +60,17 @@ namespace OrangeTheGame
 
             Button btn = new Button();
 
+            //style = null
+            btn.Style = (Style)Resources["ButtonStyle"];
+
             btn.Width = grid_l8.Width/10;
             btn.Height = grid_l8.Height/10;
             btn.Background = brush;
             btn.BorderBrush = brush;
             btn.Tag = btn_counter;
+            btn.BorderThickness = new Thickness(0, 0, 0, 0);
 
-            if (counter == 24)
+            if (counter == 49)
             {
                 btn.Click += btn_Click;
 
@@ -78,7 +82,7 @@ namespace OrangeTheGame
 
                 //MessageBox.Show("Click-Event included.");
             }
-            else if (counter > 24)
+            else if (counter > 49)
             {
                 btn.Click += btn_Click;
                 colorcounter++;

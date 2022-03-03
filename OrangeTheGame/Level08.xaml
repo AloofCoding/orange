@@ -12,7 +12,8 @@
 
     <UserControl>
         <UserControl.Resources>
-            <Style x:Key="ButtonStyle" TargetType="Button">
+            <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+                <Setter Property="OverridesDefaultStyle" Value="True"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="Button">
@@ -20,6 +21,7 @@
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="#FF8F02" />
                                     <Setter Property="BorderBrush" Value="#CE7300" />
+                                    <Setter Property="BorderThickness" Value="10" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
