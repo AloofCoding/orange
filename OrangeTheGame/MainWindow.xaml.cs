@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
+using System.Windows.Threading;
 
 namespace OrangeTheGame
 {
@@ -22,13 +23,12 @@ namespace OrangeTheGame
     public partial class MainWindow : Window
     {
         Thread music;
-        System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
         public MainWindow()
         {
             InitializeComponent();
             music = new Thread(playMusic);
-            music.Start();
+            //music.Start();
 
             //ToDo: Fix access violation coming up with level 07
         }
@@ -51,24 +51,34 @@ namespace OrangeTheGame
             if (btn_music.Content.ToString().Equals("Music: On"))
             {
                 btn_music.Content = "Music: Off";
-                music.Suspend();
+                //music.Suspend();
             }
             else
             {
                 btn_music.Content = "Music: On";
-                music.Resume();
+                music.Start();
             }
         }
 
         void playMusic()
         {
-            MessageBox.Show("thread");
-            player.Stream = Properties.Resources.ambient_easy_house_music_129641;
-            player.Load();
-            //player.Stream.Flush();
-            //player.Stream.Close();
-            //player.Stream.Dispose();
-            player.PlayLooping();
+            try
+            {
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+
+                //MessageBox.Show("thread music");
+                player.Stream = Properties.Resources.ambient_easy_house_music_129641;
+                player.Load();
+                //player.Stream.Flush();
+                //player.Stream.Close();
+                //player.Stream.Dispose();
+                player.PlayLooping();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("playMusic()\n" + ex);
+                throw;
+            }
         }
     }
 }
