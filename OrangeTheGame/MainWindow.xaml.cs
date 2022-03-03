@@ -22,12 +22,12 @@ namespace OrangeTheGame
     /// </summary>
     public partial class MainWindow : Window
     {
-        Thread music;
+        //Thread music;
 
         public MainWindow()
         {
             InitializeComponent();
-            music = new Thread(playMusic);
+            playMusic();
             //music.Start();
 
             //ToDo: Fix access violation coming up with level 07
@@ -45,7 +45,6 @@ namespace OrangeTheGame
             level.Show();
         }
 
-        [Obsolete]
         private void btn_music_Click(object sender, RoutedEventArgs e)
         {
             if (btn_music.Content.ToString().Equals("Music: On"))
@@ -56,29 +55,24 @@ namespace OrangeTheGame
             else
             {
                 btn_music.Content = "Music: On";
-                music.Start();
+                //music.Start();
             }
         }
 
-        void playMusic()
+        private async void playMusic()
         {
-            try
+            await Task.Run(() =>
             {
                 System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
                 //MessageBox.Show("thread music");
                 player.Stream = Properties.Resources.ambient_easy_house_music_129641;
-                player.Load();
+                player.LoadAsync();
                 //player.Stream.Flush();
                 //player.Stream.Close();
                 //player.Stream.Dispose();
                 player.PlayLooping();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("playMusic()\n" + ex);
-                throw;
-            }
+            });
         }
     }
 }
