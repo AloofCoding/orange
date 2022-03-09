@@ -182,6 +182,7 @@ namespace OrangeTheGame
 
                 //todo: fix error coming up
                 //error probably because writing of the files is too often/too fast
+
                 using (Stream stm = File.Open(fileName, FileMode.OpenOrCreate))
                 {
                     bitmapEncoder.Save(stm);

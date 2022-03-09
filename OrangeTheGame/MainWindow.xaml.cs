@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
 using System.Windows.Threading;
+using System.IO;
 
 namespace OrangeTheGame
 {
@@ -66,7 +67,12 @@ namespace OrangeTheGame
                 System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
                 //MessageBox.Show("thread music");
-                player.Stream = Properties.Resources.ambient_easy_house_music_129641;
+                //Todo: making relative
+                var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string filePath = System.IO.Path.Combine(projectPath, "Resources\\ambient-easy-house-music-12964.wav");
+
+                player.SoundLocation = filePath; // @"C:\Users\christoph.steiner\source\repos\AloofCoding\orange\OrangeTheGame\Resources\ambient-easy-house-music-12964.wav";
+                //player.Stream = Properties.Resources.ambient_easy_house_music_129641;
                 player.LoadAsync();
                 //player.Stream.Flush();
                 //player.Stream.Close();
