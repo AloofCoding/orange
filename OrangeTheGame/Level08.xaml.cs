@@ -24,9 +24,15 @@ namespace OrangeTheGame
         {
             InitializeComponent();
 
+            Random temp_rnd = new Random();
+
+            order_rnd = btn_list.OrderBy(x => temp_rnd.Next()).ToList();
+
+            //MessageBox.Show(string.Join(Environment.NewLine, order_rnd));
+
             for (int i = 0; i < 25; i++)
             {
-                //create_button();
+                create_button();
                 counter++;               
             }
 
@@ -37,13 +43,7 @@ namespace OrangeTheGame
             //        create_button();
             //        counter++;
             //    }
-            //}
-
-            Random temp_rnd = new Random();
-
-            order_rnd = btn_list.OrderBy(x => temp_rnd.Next()).ToList();
-            
-            MessageBox.Show(string.Join(Environment.NewLine, order_rnd));
+            //}          
         }
 
         bool[,] arr_grid = new bool[7, 7];
@@ -59,7 +59,7 @@ namespace OrangeTheGame
         int colorcounter = 0;
         int btn_counter = 0;
         int btn_delayed = -1;
-        int temp_i = 1;
+        int temp_i = 0;
 
         Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
 
@@ -72,16 +72,22 @@ namespace OrangeTheGame
             SolidColorBrush brush = new SolidColorBrush(color);
 
             Button btn = new Button();
+            TextBlock tblock = new TextBlock();
 
-            //style = null
             btn.Style = (Style)Resources["ButtonStyle"];
-
             btn.Width = grid_l8.Width/grid_l8.ColumnDefinitions.Count;
             btn.Height = grid_l8.Height/grid_l8.RowDefinitions.Count;
             btn.Background = brush;
             btn.BorderBrush = brush;
             btn.Tag = btn_counter;
             btn.BorderThickness = new Thickness(0, 0, 0, 0);
+
+            tblock.Width = grid_l8.Width / grid_l8.ColumnDefinitions.Count;
+            tblock.Height = grid_l8.Height / grid_l8.RowDefinitions.Count;
+            tblock.Background = Brushes.Transparent;
+            tblock.Tag = btn_counter;
+
+            btn.Content = tblock;
 
             if (counter == 24)
             {
@@ -114,54 +120,272 @@ namespace OrangeTheGame
             btn.SetValue(Grid.ColumnProperty, temp_i);
             */
 
-            switch (order_rnd[temp_i])
+            //MessageBox.Show(temp_i.ToString());
+
+            if (temp_i<49)
             {
-                case 1:
-                    btn_x = 0;
-                    btn_y = 0;
-                    break;
-                case 2:
-                    btn_x = 1;
-                    btn_y = 0;
-                    break;
-                case 3:
-                    btn_x = 2;
-                    btn_y = 0;
-                    break;
-                case 4:
-                    btn_x = 3;
-                    btn_y = 0;
-                    break;
+                switch (order_rnd.ElementAt(temp_i))
+                {
+                    #region 1st row
+                    case 1:
+                        btn_x = 0;
+                        btn_y = 0;
+                        break;
+                    case 2:
+                        btn_x = 1;
+                        btn_y = 0;
+                        break;
+                    case 3:
+                        btn_x = 2;
+                        btn_y = 0;
+                        break;
+                    case 4:
+                        btn_x = 3;
+                        btn_y = 0;
+                        break;
+                    case 5:
+                        btn_x = 4;
+                        btn_y = 0;
+                        break;
+                    case 6:
+                        btn_x = 5;
+                        btn_y = 0;
+                        break;
+                    case 7:
+                        btn_x = 6;
+                        btn_y = 0;
+                        break;
+                    #endregion
+                    #region 2nd row
+                    case 8:
+                        btn_x = 0;
+                        btn_y = 1;
+                        break;
+                    case 9:
+                        btn_x = 1;
+                        btn_y = 1;
+                        break;
+                    case 10:
+                        btn_x = 2;
+                        btn_y = 1;
+                        break;
+                    case 11:
+                        btn_x = 3;
+                        btn_y = 1;
+                        break;
+                    case 12:
+                        btn_x = 4;
+                        btn_y = 1;
+                        break;
+                    case 13:
+                        btn_x = 5;
+                        btn_y = 1;
+                        break;
+                    case 14:
+                        btn_x = 6;
+                        btn_y = 1;
+                        break;
+                    #endregion
+                    #region 3rd row
+                    case 15:
+                        btn_x = 0;
+                        btn_y = 2;
+                        break;
+                    case 16:
+                        btn_x = 1;
+                        btn_y = 2;
+                        break;
+                    case 17:
+                        btn_x = 2;
+                        btn_y = 2;
+                        break;
+                    case 18:
+                        btn_x = 3;
+                        btn_y = 2;
+                        break;
+                    case 19:
+                        btn_x = 4;
+                        btn_y = 2;
+                        break;
+                    case 20:
+                        btn_x = 5;
+                        btn_y = 2;
+                        break;
+                    case 21:
+                        btn_x = 6;
+                        btn_y = 2;
+                        break;
+                    #endregion
+                    #region 4th row
+                    case 22:
+                        btn_x = 0;
+                        btn_y = 3;
+                        break;
+                    case 23:
+                        btn_x = 1;
+                        btn_y = 3;
+                        break;
+                    case 24:
+                        btn_x = 2;
+                        btn_y = 3;
+                        break;
+                    case 25:
+                        btn_x = 3;
+                        btn_y = 3;
+                        break;
+                    case 26:
+                        btn_x = 4;
+                        btn_y = 3;
+                        break;
+                    case 27:
+                        btn_x = 5;
+                        btn_y = 3;
+                        break;
+                    case 28:
+                        btn_x = 6;
+                        btn_y = 3;
+                        break;
+                    #endregion
+                    #region 5th row
+                    case 29:
+                        btn_x = 0;
+                        btn_y = 4;
+                        break;
+                    case 30:
+                        btn_x = 1;
+                        btn_y = 4;
+                        break;
+                    case 31:
+                        btn_x = 2;
+                        btn_y = 4;
+                        break;
+                    case 32:
+                        btn_x = 3;
+                        btn_y = 4;
+                        break;
+                    case 33:
+                        btn_x = 4;
+                        btn_y = 4;
+                        break;
+                    case 34:
+                        btn_x = 5;
+                        btn_y = 4;
+                        break;
+                    case 35:
+                        btn_x = 6;
+                        btn_y = 4;
+                        break;
+                    #endregion
+                    #region 6th row
+                    case 36:
+                        btn_x = 0;
+                        btn_y = 5;
+                        break;
+                    case 37:
+                        btn_x = 1;
+                        btn_y = 5;
+                        break;
+                    case 38:
+                        btn_x = 2;
+                        btn_y = 5;
+                        break;
+                    case 39:
+                        btn_x = 3;
+                        btn_y = 5;
+                        break;
+                    case 40:
+                        btn_x = 4;
+                        btn_y = 5;
+                        break;
+                    case 41:
+                        btn_x = 5;
+                        btn_y = 5;
+                        break;
+                    case 42:
+                        btn_x = 6;
+                        btn_y = 5;
+                        break;
+                    #endregion
+                    #region 7th row
+                    case 43:
+                        btn_x = 0;
+                        btn_y = 6;
+                        break;
+                    case 44:
+                        btn_x = 1;
+                        btn_y = 6;
+                        break;
+                    case 45:
+                        btn_x = 2;
+                        btn_y = 6;
+                        break;
+                    case 46:
+                        btn_x = 3;
+                        btn_y = 6;
+                        break;
+                    case 47:
+                        btn_x = 4;
+                        btn_y = 6;
+                        break;
+                    case 48:
+                        btn_x = 5;
+                        btn_y = 6;
+                        break;
+                    case 49:
+                        btn_x = 6;
+                        btn_y = 6;
+                        break;
+                    #endregion
+                    default:
+                        MessageBox.Show("Button outside of switch case");
+                        break;
+                } 
+            }
+            else
+            {
+                MessageBox.Show("Level cleared!");
             }
 
-            do
-            {
-                if (arr_grid[rnd_cols, rnd_rows] == false)
-                {
-                    grid_l8.Children.Add(btn);
-                    //MessageBox.Show(btn_counter.ToString());
-                    btn_counter++;
-                    btn_delayed++;
-                    arr_grid[/*rnd_cols*/, /*rnd_rows*/] = true;
-                    return;
-                }
-                else
-                {
-                    //MessageBox.Show("Button couldn't be placed.");
+            btn.SetValue(Grid.RowProperty, btn_x);
+            btn.SetValue(Grid.ColumnProperty, btn_y);
 
-                    /*
-                    rnd_rows = new Random().Next(0, grid_l8.RowDefinitions.Count());
-                    btn.SetValue(Grid.RowProperty, rnd_rows);
+            grid_l8.Children.Add(btn);
+            btn_counter++;
+            btn_delayed++;
+            temp_i++;
 
-                    Thread.Sleep(new Random().Next(0, 500));
+            //MessageBox.Show("Button should've been placed.");
 
-                    rnd_cols = new Random().Next(0, grid_l8.ColumnDefinitions.Count());
-                    btn.SetValue(Grid.ColumnProperty, rnd_cols);
-                    */
+            #region low performance 1st try
+            //do
+            //{
+            //    if (/*arr_grid[rnd_cols, rnd_rows] == false*/)
+            //    {
+            //        grid_l8.Children.Add(btn);
+            //        //MessageBox.Show(btn_counter.ToString());
+            //        btn_counter++;
+            //        btn_delayed++;
+            //        //arr_grid[rnd_cols, rnd_rows] = true;
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        //MessageBox.Show("Button couldn't be placed.");
 
-                    //MessageBox.Show(rnd_cols.ToString() + ";" + rnd_rows.ToString());
-                } 
-            } while (true);
+            //        /*
+            //        rnd_rows = new Random().Next(0, grid_l8.RowDefinitions.Count());
+            //        btn.SetValue(Grid.RowProperty, rnd_rows);
+
+            //        Thread.Sleep(new Random().Next(0, 500));
+
+            //        rnd_cols = new Random().Next(0, grid_l8.ColumnDefinitions.Count());
+            //        btn.SetValue(Grid.ColumnProperty, rnd_cols);
+            //        */
+
+            //        //MessageBox.Show(rnd_cols.ToString() + ";" + rnd_rows.ToString());
+            //    } 
+            //} while (true);
+            #endregion
         }
 
         /// <summary>
