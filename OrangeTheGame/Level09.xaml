@@ -21,6 +21,7 @@
         <Rectangle x:Name="rect_03" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="406,240,366,159" Stroke="White" VerticalAlignment="Center" Width="20"/>
         <Rectangle x:Name="rect_02" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="386,240,386,159" Stroke="White" VerticalAlignment="Center" Width="20"/>
         <Rectangle x:Name="rect_01" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="366,240,406,159" Stroke="White" VerticalAlignment="Center" Width="20"/>
+        <Button x:Name="btn_finish" Content="Finish this" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="211,225,0,0" Click="btn_finish_Click"/>
 
         <!-- Concept for level 9:
         snake game, spawn 5 (or 9) white objects which shall be eaten

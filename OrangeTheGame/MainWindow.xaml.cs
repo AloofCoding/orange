@@ -28,7 +28,9 @@ namespace OrangeTheGame
         public MainWindow()
         {
             InitializeComponent();
+
             playMusic();
+
             //music.Start();
 
             //ToDo: Fix access violation coming up with level 07
@@ -38,6 +40,8 @@ namespace OrangeTheGame
         //Music by <a href="/users/lvymusic-24939435/?tab=audio&amp;utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=audio&amp;utm_content=12964">lvymusic</a> from <a href="https://pixabay.com/music/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=12964">Pixabay</a>
 
         public delegate void ThreadStart();
+        System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+
 
         private void btn_startGame_Click(object sender, RoutedEventArgs e)
         {
@@ -51,12 +55,12 @@ namespace OrangeTheGame
             if (btn_music.Content.ToString().Equals("Music: On"))
             {
                 btn_music.Content = "Music: Off";
-                //music.Suspend();
+                player.Stop();
             }
             else
             {
                 btn_music.Content = "Music: On";
-                //music.Start();
+                player.PlayLooping();
             }
         }
 
@@ -64,14 +68,13 @@ namespace OrangeTheGame
         {
             await Task.Run(() =>
             {
-                System.Media.SoundPlayer player = new System.Media.SoundPlayer();
 
                 //MessageBox.Show("thread music");
                 //Todo: making relative
                 var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
                 string filePath = System.IO.Path.Combine(projectPath, "Resources\\ambient-easy-house-music-12964.wav");
 
-                player.SoundLocation = filePath; // @"C:\Users\christoph.steiner\source\repos\AloofCoding\orange\OrangeTheGame\Resources\ambient-easy-house-music-12964.wav";
+                player.SoundLocation = filePath;
                 //player.Stream = Properties.Resources.ambient_easy_house_music_129641;
                 player.LoadAsync();
                 //player.Stream.Flush();
@@ -79,6 +82,16 @@ namespace OrangeTheGame
                 //player.Stream.Dispose();
                 player.PlayLooping();
             });
+        }
+
+        private void img_options_Loaded(object sender, RoutedEventArgs e)
+        {
+            Image img = sender as Image;
+            BitmapImage bitmapImage = new BitmapImage();
+            img.Width = bitmapImage.DecodePixelWidth = 80;
+
+            bitmapImage.UriSource = new Uri("Resources/options.png", UriKind.Relative);
+            img.Source = bitmapImage;
         }
     }
 }

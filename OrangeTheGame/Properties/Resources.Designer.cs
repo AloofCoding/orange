@@ -72,9 +72,9 @@ namespace OrangeTheGame.Properties {
         /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap lv7 {
+        internal static System.Drawing.Bitmap options {
             get {
-                object obj = ResourceManager.GetObject("lv7", resourceCulture);
+                object obj = ResourceManager.GetObject("options", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

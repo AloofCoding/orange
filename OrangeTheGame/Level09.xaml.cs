@@ -24,5 +24,10 @@ namespace OrangeTheGame
         {
             InitializeComponent();
         }
+
+        private void btn_finish_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
