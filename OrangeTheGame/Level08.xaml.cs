@@ -62,6 +62,7 @@ namespace OrangeTheGame
         int temp_i = 0;
 
         Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
+        Color color2 = (Color)ColorConverter.ConvertFromString("#CE7300");
 
         /// <summary>
         /// ensures every button created is the same and has a unique position
@@ -74,7 +75,13 @@ namespace OrangeTheGame
             Button btn = new Button();
             TextBlock tblock = new TextBlock();
 
-            btn.Style = (Style)Resources["ButtonStyle"];
+            //a not working try to assign the created buttons a custom xaml style
+            //Style style = (Style)Resources["ButtonStyle"];
+            //btn.Style = style;
+
+            btn.MouseEnter += Btn_MouseEnter;
+            btn.MouseLeave += Btn_MouseLeave;
+
             btn.Width = grid_l8.Width/grid_l8.ColumnDefinitions.Count;
             btn.Height = grid_l8.Height/grid_l8.RowDefinitions.Count;
             btn.Background = brush;
@@ -93,7 +100,6 @@ namespace OrangeTheGame
             {
                 btn.Click += btn_Click;
 
-                Color color2 = (Color)ColorConverter.ConvertFromString("#CE7300");
                 SolidColorBrush brush2 = new SolidColorBrush(color2);
 
                 btn.Background = brush2;
@@ -343,7 +349,10 @@ namespace OrangeTheGame
             }
             else
             {
-                MessageBox.Show("Level cleared!");
+                MessageBox.Show("Level cleared!");              
+                LevelSelection ls = new LevelSelection();
+                ls.Show();
+                this.Close();
             }
 
             btn.SetValue(Grid.RowProperty, btn_x);
@@ -386,6 +395,40 @@ namespace OrangeTheGame
             //    } 
             //} while (true);
             #endregion
+        }
+
+        /// <summary>
+        /// removes the border effect as soon as the mouse leaves the certain button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_MouseLeave(object sender, MouseEventArgs e)
+        {
+            foreach (Button b in grid_l8.Children.OfType<Button>())
+            {
+                b.BorderThickness = new Thickness(0, 0, 0, 0);
+            }
+        }
+
+        /// <summary>
+        /// Adds a border while moving your mouse over a certain button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Btn_MouseEnter(object sender, MouseEventArgs e)
+        {
+            SolidColorBrush brush2 = new SolidColorBrush(color2);
+            //SolidColorBrush brush = new SolidColorBrush(color);
+
+            foreach (Button b in grid_l8.Children.OfType<Button>())
+            {
+                if (b.IsMouseOver)
+                {
+                    b.BorderThickness = new Thickness(7, 7, 7, 7);
+                    b.BorderBrush = brush2;
+                }
+            }
+
         }
 
         /// <summary>
