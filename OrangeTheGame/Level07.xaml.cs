@@ -190,8 +190,8 @@ namespace OrangeTheGame
             }
             catch (Exception ex)
             {
-                MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
-                //Thread.Sleep(500);
+                //MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
+                Thread.Sleep(100);
                 return;
             }
         }

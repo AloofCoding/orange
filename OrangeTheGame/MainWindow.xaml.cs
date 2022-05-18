@@ -16,6 +16,7 @@ using System.Threading;
 using System.Windows.Threading;
 using System.IO;
 
+
 namespace OrangeTheGame
 {
     /// <summary>
@@ -45,7 +46,7 @@ namespace OrangeTheGame
 
         private void btn_startGame_Click(object sender, RoutedEventArgs e)
         {
-            Level07 level = new Level07();
+            Level01 level = new Level01();
             this.Close();
             level.Show();
         }
@@ -92,6 +93,22 @@ namespace OrangeTheGame
 
             bitmapImage.UriSource = new Uri("Resources/options.png", UriKind.Relative);
             img.Source = bitmapImage;
+        }
+
+        private void btn_options_Click(object sender, RoutedEventArgs e)
+        {
+            Configuration config = new Configuration();
+            config.ShowDialog();
+            //var result = MessageBox.Show("Erase game progress?", "Configurations", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            //if (result == MessageBoxResult.Yes)
+            //{
+            //    //ToDo: Have a record of the game progress and clear it in the case of this answer
+            //    MessageBox.Show("Progress erased.");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Progress not erased.");
+            //}
         }
     }
 }
