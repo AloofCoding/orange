@@ -406,7 +406,10 @@ namespace OrangeTheGame
         {
             foreach (Button b in grid_l8.Children.OfType<Button>())
             {
+
                 b.BorderThickness = new Thickness(0, 0, 0, 0);
+
+                //b.Background = new SolidColorBrush(color); 
             }
         }
 
@@ -424,8 +427,21 @@ namespace OrangeTheGame
             {
                 if (b.IsMouseOver)
                 {
+                    /*
+                    ImageBrush ib = new ImageBrush();
+                    BitmapImage bi = new BitmapImage();
+
+                    bi.BeginInit();
+                    bi.UriSource = new Uri("file:///C:/Users/andreas.steiner/source/repos/AloofCoding/orange/OrangeTheGame/Resources/frame.png");
+                    bi.EndInit();
+
+                    ib.ImageSource = bi;
+
+                    b.Background = ib;
+                    */
+
                     b.BorderThickness = new Thickness(7, 7, 7, 7);
-                    b.BorderBrush = brush2;
+                    b.BorderBrush = new SolidColorBrush(color2);
                 }
             }
 
