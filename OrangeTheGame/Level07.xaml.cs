@@ -135,6 +135,7 @@ namespace OrangeTheGame
             BitmapImage logo = new BitmapImage();
             logo.BeginInit();
             logo.UriSource = new Uri(path);
+            //MessageBox.Show(logo.UriSource.AbsoluteUri.ToString());
             logo.EndInit();
             System.Windows.Controls.Image image = new System.Windows.Controls.Image();
             image.Source = logo;

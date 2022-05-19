@@ -85,19 +85,10 @@ namespace OrangeTheGame
             });
         }
 
-        private void img_options_Loaded(object sender, RoutedEventArgs e)
-        {
-            Image img = sender as Image;
-            BitmapImage bitmapImage = new BitmapImage();
-            img.Width = bitmapImage.DecodePixelWidth = 80;
-
-            bitmapImage.UriSource = new Uri("Resources/options.png", UriKind.Relative);
-            img.Source = bitmapImage;
-        }
-
         private void btn_options_Click(object sender, RoutedEventArgs e)
         {
             Configuration config = new Configuration();
+            config.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             config.ShowDialog();
             //var result = MessageBox.Show("Erase game progress?", "Configurations", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
             //if (result == MessageBoxResult.Yes)

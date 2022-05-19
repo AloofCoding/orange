@@ -70,33 +70,6 @@ namespace OrangeTheGame.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die true ähnelt.
-        /// </summary>
-        public static string bool_fullscreen {
-            get {
-                return ResourceManager.GetString("bool_fullscreen", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 450 ähnelt.
-        /// </summary>
-        public static string int_height {
-            get {
-                return ResourceManager.GetString("int_height", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die 800 ähnelt.
-        /// </summary>
-        public static string int_width {
-            get {
-                return ResourceManager.GetString("int_width", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap options {

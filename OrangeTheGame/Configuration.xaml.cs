@@ -25,7 +25,8 @@ namespace OrangeTheGame
             InitializeComponent();
             //todo: import/read currently active settings
             //if(Resources.)
-            btn_close.Content = "Save & Close";
+            btn_close.Content = " Save & Close ";
+            lbl_pixelsettings.Content = "Change window size:\n(Min: 800x450)";
         }
 
         #region https://iditect.com/guide/csharp/csharp_howto_make_a_textbox_only_accept_numbers_in_wpf.html
@@ -51,7 +52,30 @@ namespace OrangeTheGame
         private void btn_close_Click(object sender, RoutedEventArgs e)
         {
             //todo: export/save new settings
-            this.Close();
+            int width;
+            int height;
+            if (!chk_fullscreen.IsChecked.Value)
+            {
+                if (!Int32.TryParse(txt_width.Text.ToString(), out width)
+                        || width < 800
+                        || !Int32.TryParse(txt_height.Text.ToString(), out height)
+                        || height < 450)
+                {
+                    MessageBox.Show("Please fill out the two textboxes with valid numbers without any decimals.\n" +
+                        "Please make sure that your chosen size is >= 800x450.");
+                }
+                else
+                {
+                    MessageBox.Show("New size: " + width + "x" + height, "Settings saved", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.Close();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("You chose to have fullscreen windows", "Settings saved", MessageBoxButton.OK, MessageBoxImage.Information);
+                Close();
+            }
         }
 
         private void chk_fullscreen_Unchecked(object sender, RoutedEventArgs e)
