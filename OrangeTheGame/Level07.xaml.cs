@@ -97,7 +97,9 @@ namespace OrangeTheGame
             try
             {
                 //Thread.Sleep(100);
-                path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp");
+                var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                string path = System.IO.Path.Combine(projectPath, "Resources\\temp.bmp");
+                //path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\temp.bmp");
                 CreateBitmapFromVisual(Window.GetWindow(paintSurface), path);
                 //MessageBox.Show("Back to 102");
                 var bitmap = SetImageSource(path);
@@ -191,7 +193,7 @@ namespace OrangeTheGame
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
+                MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
                 Thread.Sleep(100);
                 return;
             }
@@ -252,12 +254,12 @@ namespace OrangeTheGame
         /// <param name="e"></param>
         private async void Window_Closed(object sender, EventArgs e)
         {
-            await Task.Run(() =>
-            {
-                Thread.Sleep(5000);
-            });
+            //await Task.Run(() =>
+            //{
+            //    Thread.Sleep(5000);
+            //});
 
-            File.Delete(path);
+            //File.Delete(path);
         }
     }
 }

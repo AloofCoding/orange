@@ -69,12 +69,10 @@ namespace OrangeTheGame
         {
             await Task.Run(() =>
             {
-
                 //MessageBox.Show("thread music");
                 //Todo: making relative
                 var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
                 string filePath = System.IO.Path.Combine(projectPath, "Resources\\ambient-easy-house-music-12964.wav");
-
                 player.SoundLocation = filePath;
                 //player.Stream = Properties.Resources.ambient_easy_house_music_129641;
                 player.LoadAsync();
