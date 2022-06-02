@@ -10,8 +10,8 @@
         Background="#FF8F02"
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-        <ProgressBar x:Name="pBar" HorizontalAlignment="Left" Height="325" Margin="10,10,0,0" VerticalAlignment="Top" Width="1127" BorderBrush="#00000000" Foreground="#FFFF8F02" Background="#FFCE7300"/>
-        <Rectangle x:Name="rect_pBar" Fill="#FFCE7300" HorizontalAlignment="Center" Height="269" Margin="10,340,1035,0" Stroke="#00000000" VerticalAlignment="Top" Width="100" MouseEnter="Rectangle_MouseEnter"/>
+        <ProgressBar x:Name="pBar" HorizontalAlignment="Left" Height="325" Margin="10,10,0,0" VerticalAlignment="Top" Width="1127" BorderBrush="#00000000" Foreground="#FFFF8F02" Background="#000000"/>
+        <Rectangle x:Name="rect_pBar" Fill="#FFCE7300" HorizontalAlignment="Center" Height="269" Margin="10,335,1035,0" Stroke="#00000000" VerticalAlignment="Top" Width="100" MouseLeftButtonUp="Rectangle_MouseClick"/>
         <Label Content="4" HorizontalAlignment="Left" Margin="900,10,0,0" VerticalAlignment="Top" Height="325" Width="100" FontSize="172" Foreground="#FFCE7300"/>
     </Grid>
 </Window>

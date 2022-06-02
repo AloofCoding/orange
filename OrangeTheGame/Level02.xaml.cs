@@ -52,7 +52,6 @@ namespace OrangeTheGame
                         Thread.Sleep(1000);
                     });
 
-                    //Thread.Sleep(1000);
                     Level04 l4 = new Level04();
                     l4.Show();
                     this.Close();

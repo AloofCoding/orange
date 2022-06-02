@@ -27,12 +27,15 @@ namespace OrangeTheGame
         }
 
         /// <summary>
-        /// raising the progress in the progress bar by 1 every time the mouse enters the shape
+        /// raising the progress in the progress bar by 1 every time you click the shape
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void Rectangle_MouseEnter(object sender, MouseEventArgs e)
+        private async void Rectangle_MouseClick(object sender, MouseEventArgs e)
         {
+            Random rect_rnd = new Random();
+            Random rect_height = new Random();
+            int rect_position;
             pBar.Value += 1;
 
             if(pBar.Value == 100)
@@ -47,6 +50,117 @@ namespace OrangeTheGame
                 Level06 l6 = new Level06();
                 l6.Show();
                 this.Close();
+            }
+            else if (pBar.Value == 10)
+            {
+                rect_pBar.IsEnabled = false;
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(500);
+                });
+                rect_position = rect_rnd.Next(10, 1035);
+                rect_pBar.IsEnabled = true;
+                rect_pBar.Margin = new Thickness (rect_position, 340,1035-rect_position, 0 );
+                rect_pBar.Height = rect_height.Next(50, 269);
+            }
+            else if (pBar.Value == 20)
+            {
+                rect_pBar.IsEnabled = false;
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(500);
+                });
+                rect_position = rect_rnd.Next(10, 1035);
+                rect_pBar.IsEnabled = true;
+                rect_pBar.Margin = new Thickness(rect_position, 340, 1035 - rect_position, 0);
+                rect_pBar.Height = rect_height.Next(50, 269);
+            }
+            else if (pBar.Value == 30)
+            {
+
+                rect_pBar.IsEnabled = false;
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(500);
+                });
+                rect_position = rect_rnd.Next(10, 1035);
+                rect_pBar.IsEnabled = true;
+                rect_pBar.Margin = new Thickness(rect_position, 340, 1035 - rect_position, 0);
+                rect_pBar.Height = rect_height.Next(50, 269);
+            }
+            else if (pBar.Value == 40)
+            {
+                rect_pBar.IsEnabled = false;
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(500);
+                });
+                rect_position = rect_rnd.Next(10, 1035);
+                rect_pBar.IsEnabled = true;
+                rect_pBar.Margin = new Thickness(rect_position, 340, 1035 - rect_position, 0);
+                rect_pBar.Height = rect_height.Next(50, 269);
+            }
+            else if (pBar.Value == 50)
+            {
+
+                rect_pBar.IsEnabled = false;
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(500);
+                });
+                rect_position = rect_rnd.Next(10, 1035);
+                rect_pBar.IsEnabled = true;
+                rect_pBar.Margin = new Thickness(rect_position, 340, 1035 - rect_position, 0);
+                rect_pBar.Height = rect_height.Next(50, 269);
+            }
+            else if (pBar.Value == 60)
+            {
+                rect_pBar.IsEnabled = false;
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(500);
+                });
+                rect_position = rect_rnd.Next(10, 1035);
+                rect_pBar.IsEnabled = true;
+                rect_pBar.Margin = new Thickness(rect_position, 340, 1035 - rect_position, 0);
+                rect_pBar.Height = rect_height.Next(50, 269);
+            }
+            else if (pBar.Value == 70)
+            {
+
+                rect_pBar.IsEnabled = false;
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(500);
+                });
+                rect_position = rect_rnd.Next(10, 1035);
+                rect_pBar.IsEnabled = true;
+                rect_pBar.Margin = new Thickness(rect_position, 340, 1035 - rect_position, 0);
+                rect_pBar.Height = rect_height.Next(50, 269);
+            }
+            else if (pBar.Value == 80)
+            {
+                rect_pBar.IsEnabled = false;
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(500);
+                });
+                rect_position = rect_rnd.Next(10, 1035);
+                rect_pBar.IsEnabled = true;
+                rect_pBar.Margin = new Thickness(rect_position, 340, 1035 - rect_position, 0);
+                rect_pBar.Height = rect_height.Next(50, 269);
+            }
+            else if (pBar.Value == 90)
+            {
+                rect_pBar.IsEnabled = false;
+                await Task.Run(() =>
+                {
+                    Thread.Sleep(500);
+                });
+                rect_position = rect_rnd.Next(10, 1035);
+                rect_pBar.IsEnabled = true;
+                rect_pBar.Margin = new Thickness(rect_position, 340, 1035 - rect_position, 0);
+                rect_pBar.Height = rect_height.Next(50, 269);
             }
         }
     }
