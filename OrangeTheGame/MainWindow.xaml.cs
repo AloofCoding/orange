@@ -46,7 +46,12 @@ namespace OrangeTheGame
 
         private void btn_startGame_Click(object sender, RoutedEventArgs e)
         {
-            Level01 level = new Level01();
+
+            // showing level selection screen
+            // playing a sound effect
+            lbl_titleOnStartingScreen.Visibility = Visibility.Hidden;
+            btn_startGame.Visibility = Visibility.Hidden;
+            LevelSelection level = new LevelSelection();
             this.Close();
             level.Show();
         }

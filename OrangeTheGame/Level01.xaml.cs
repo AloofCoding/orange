@@ -25,6 +25,11 @@ namespace OrangeTheGame
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Calculating to change the color of the background equivalent according to the slider's value
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void slider_lv1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             SolidColorBrush magicBrush = (SolidColorBrush)this.Resources["magicBrush"];
@@ -46,15 +51,20 @@ namespace OrangeTheGame
             }
         }
 
+        /// <summary>
+        /// Method for registering the mouse leaving the slider, checking if the level is completed (slider is on 255/255)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void slider_lv1_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (slider_lv1.Value == 255)
             {
-                //level completed!!
+                //level completed!
                 UpdateLayout();
                 Thread.Sleep(1000);
-
-                Level03 level = new Level03();
+                
+                Level02 level = new Level02();
                 level.Show();
                 this.Close();
             }

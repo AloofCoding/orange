@@ -25,8 +25,14 @@ namespace OrangeTheGame
             InitializeComponent();
         }
 
+        //variable specifying which of the 5 rectangles get turned orange.
         private int rectToFill = 0;
 
+        /// <summary>
+        /// The rectangle which's number is stored in rectToFill gets turned orange when the left button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ell_btn_left_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
@@ -57,10 +63,16 @@ namespace OrangeTheGame
             rectToFill = 0;
         }
 
+        /// <summary>
+        /// increases rectToFill when the right button is pressed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ell_btn_right_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             rectToFill += 1;
         }
+
 
         private async void checkIfFinished(SolidColorBrush myBrush)
         {
@@ -75,7 +87,9 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                Level07 level = new Level07();
+
+                Level06 level = new Level06();
+
                 level.Show();
                 this.Close();
             }

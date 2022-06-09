@@ -24,6 +24,7 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level07 : Window
     {
+
         //ToDo: identify where the access violation occurs: occurs because of played music, not error in this level
         //Das Programm "[4044] OrangeTheGame.exe" wurde mit Code -1073741819 (0xc0000005) 'Access violation' beendet.
 
@@ -94,6 +95,7 @@ namespace OrangeTheGame
         /// <param name="e"></param>
         private void paintSurface_MouseUp(object sender, MouseButtonEventArgs e)
         {
+
             try
             {
                 //Thread.Sleep(100);
@@ -118,7 +120,6 @@ namespace OrangeTheGame
                     level.Show();
                     this.Close();
                 }
-
             }
             catch (Exception ex)
             {
@@ -197,6 +198,10 @@ namespace OrangeTheGame
                 Thread.Sleep(100);
                 return;
             }
+            catch
+            {
+                Thread.Sleep(500);
+            } 
         }
 
         /// <summary>
