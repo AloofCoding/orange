@@ -20,12 +20,12 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level03 : Window
     {
-        private int filledRectangles;
+
+        private int amountOfClicks = 0;
 
         public Level03()
         {
             InitializeComponent();
-            filledRectangles = 0;
         }
 
         /// <summary>
@@ -40,12 +40,12 @@ namespace OrangeTheGame
             Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
             SolidColorBrush myBrush = new SolidColorBrush(color);
 
-            if (!rect.Fill.ToString().Equals(myBrush.ToString()))
+            if (!rect.Fill.ToString().Equals(color.ToString()))
             {
                 rect.Fill = myBrush;
-            }
 
-            filledRectangles++;
+                amountOfClicks++;
+            }
 
             checkIfFinished();
         }
@@ -63,7 +63,7 @@ namespace OrangeTheGame
                 {
                     Thread.Sleep(1000);
                 });
-                
+
                 Level04 level = new Level04();
                 level.Show();
                 this.Close();

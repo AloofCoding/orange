@@ -58,7 +58,7 @@ namespace OrangeTheGame
                 default:
                     break;
             }
-            checkIfFinished();
+            checkIfFinished(myBrush);
 
             rectToFill = 0;
         }
@@ -73,15 +73,10 @@ namespace OrangeTheGame
             rectToFill += 1;
         }
 
-        /// <summary>
-        /// Method for checking if all rectangles and therefore the whole screen is orange.
-        /// </summary>
-        private async void checkIfFinished()
-        {
-            Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
-            SolidColorBrush myBrush = new SolidColorBrush(color);
 
-            if (   rect_01.Fill.ToString().Equals(myBrush.ToString()) &&
+        private async void checkIfFinished(SolidColorBrush myBrush)
+        {
+            if (rect_01.Fill.ToString().Equals(myBrush.ToString()) &&
                    rect_02.Fill.ToString().Equals(myBrush.ToString()) &&
                    rect_03.Fill.ToString().Equals(myBrush.ToString()) &&
                    rect_04.Fill.ToString().Equals(myBrush.ToString()) &&
@@ -92,8 +87,9 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                
+
                 Level06 level = new Level06();
+
                 level.Show();
                 this.Close();
             }

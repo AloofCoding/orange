@@ -16,6 +16,5 @@
                 <SolidColorBrush Color="#FF8F02" Opacity="0" />
             </Canvas.Background>
         </Canvas>
-
     </Grid>
 </Window>

@@ -37,7 +37,7 @@ namespace OrangeTheGame
             byte blue = 0;
             double calculation;
 
-            if ((slider_lv1 != null))
+            if (slider_lv1 != null)
             {
                 if (slider_lv1.Value >= 1)
                 {
@@ -45,7 +45,7 @@ namespace OrangeTheGame
                     green = (byte)Math.Round(calculation, 0);
                     calculation = 2 * (slider_lv1.Value / 255);
                     blue = (byte)Math.Round(calculation, 0);
-                }                
+                }
                 magicBrush.Color = Color.FromRgb((byte)slider_lv1.Value, green, blue);
                 this.Background = magicBrush;
             }

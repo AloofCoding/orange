@@ -46,8 +46,13 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label x:Name="lbl_titleOnStartingScreen" Content="Orange" HorizontalAlignment="Center"  Margin="0,0,0,150" VerticalAlignment="Center" Foreground="#CE7300" FontSize="52" FontWeight="Bold"/>
-            <Button x:Name="btn_startGame" Style="{StaticResource MyButtonStyle}" Content="Start Game" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Center" Width="160" Height ="40" Background="Transparent" Foreground="#CE7300" BorderThickness="0" Cursor="Hand"
-                    FontSize="24" Click="btn_startGame_Click"/>
+            <Button x:Name="btn_startGame" Style="{StaticResource MyButtonStyle}" Content="Start Game" HorizontalAlignment="Center" Margin="0,50,0,0" VerticalAlignment="Center" Width="200" Height ="60" Background="Transparent" Foreground="#CE7300" BorderThickness="0" Cursor="Hand"
+                    FontSize="32" Click="btn_startGame_Click"/>
+            <Button x:Name="btn_music" Style="{StaticResource MyButtonStyle}" Content="Music: On" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="150" Click="btn_music_Click" Cursor="Hand" FontSize="24"/>
+            <Button x:Name="btn_options" Style="{StaticResource MyButtonStyle}" Content="⚙️" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="btn_options_Click" Cursor="Hand" FontSize="24"/>
+
+            <!--<Image x:Name="img_options" HorizontalAlignment="Left" Height="110" VerticalAlignment="Top" Width="110" Margin="10,10,0,0" Cursor="Hand" Loaded="img_options_Loaded" Source="pack://siteoforigin:,,,/Resources/options.png" />-->
+            <!-- by <a href="https://pixabay.com/users/clker-free-vector-images-3736/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=304395">Clker-Free-Vector-Images</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=304395">Pixabay</a> -->
         </Grid>
     </UserControl>
 </Window>
