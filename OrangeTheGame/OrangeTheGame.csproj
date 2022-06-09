@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>puzzle-35789_640.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -98,7 +101,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    
     <Compile Include="Level02.xaml.cs">
       <DependentUpon>Level02.xaml</DependentUpon>
     </Compile>
@@ -201,6 +203,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="puzzle-35789_640.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

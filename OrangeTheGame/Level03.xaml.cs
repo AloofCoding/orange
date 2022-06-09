@@ -58,7 +58,7 @@ namespace OrangeTheGame
 
             string myBrush = new SolidColorBrush(color).ToString();
 
-            if (filledRectangles == 5)
+            if (amountOfClicks == 5)
             {
                 //fkue
                 await Task.Run(() =>
