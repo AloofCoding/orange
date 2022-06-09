@@ -16,6 +16,7 @@ namespace OrangeTheGame
 {
     /// <summary>
     /// Interaktionslogik für LevelSelection.xaml
+    /// opens/starts the level the user chose
     /// </summary>
     public partial class LevelSelection : Window
     {

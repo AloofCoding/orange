@@ -223,6 +223,8 @@ namespace OrangeTheGame
             */
             #endregion
 
+            //determines which order the user has to solve
+            //works with a switch-case for better performance than 1st improvement
             #region 2nd improvement
             if (order == 1)
             {

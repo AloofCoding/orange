@@ -20,6 +20,12 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level08 : Window
     {
+
+        /// <summary>
+        /// creating the random order for the buttons,
+        /// adding them to a list
+        /// and placing the "startbuttons" on the form
+        /// </summary>
         public Level08()
         {
             InitializeComponent();
@@ -66,7 +72,7 @@ namespace OrangeTheGame
 
         /// <summary>
         /// ensures every button created is the same and has a unique position
-        /// adds the click event after the 'obstacle' buttons are placed
+        /// adds the click event after the 'startbuttons' buttons are placed
         /// </summary>
         private void create_button()
         {
@@ -104,6 +110,9 @@ namespace OrangeTheGame
 
                 btn.Background = brush2;
                 btn.BorderBrush = brush2;
+                btn.Foreground = brush;
+                btn.FontSize = 84;
+                btn.Content = "8";
 
                 //MessageBox.Show("Click-Event included.");
             }
@@ -472,6 +481,7 @@ namespace OrangeTheGame
                 foreach (Button b in grid_l8.Children.OfType<Button>())
                 {
                     b.Background = brush;
+                    b.Content = "";
                 } 
             }
         }
