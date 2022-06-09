@@ -20,6 +20,7 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level03 : Window
     {
+
         private int amountOfClicks = 0;
 
         public Level03()
@@ -57,7 +58,7 @@ namespace OrangeTheGame
 
             string myBrush = new SolidColorBrush(color).ToString();
 
-            if (amountOfClicks == 5)
+            if (filledRectangles == 5)
             {
                 //fkue
                 await Task.Run(() =>
@@ -65,9 +66,7 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                //level finished
-
-                Level05 level = new Level05();
+                Level04 level = new Level04();
                 level.Show();
                 this.Close();
             }

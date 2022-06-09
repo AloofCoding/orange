@@ -25,6 +25,7 @@ namespace OrangeTheGame
             InitializeComponent();
         }
 
+        //variable specifying which of the 5 rectangles get turned orange.
         private int rectToFill = 0;
 
         /// <summary>
@@ -89,7 +90,9 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                Level07 level = new Level07();
+
+                Level06 level = new Level06();
+
                 level.Show();
                 this.Close();
             }

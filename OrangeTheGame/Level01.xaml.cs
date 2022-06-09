@@ -52,7 +52,7 @@ namespace OrangeTheGame
         }
 
         /// <summary>
-        /// Method activated when the player lets go of the slider, checks if winning condition is met
+        /// Method for registering the mouse leaving the slider, checking if the level is completed (slider is on 255/255)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -60,11 +60,11 @@ namespace OrangeTheGame
         {
             if (slider_lv1.Value == 255)
             {
-                //level completed!!
+                //level completed!
                 UpdateLayout();
                 Thread.Sleep(1000);
-
-                Level03 level = new Level03();
+                
+                Level02 level = new Level02();
                 level.Show();
                 this.Close();
             }
