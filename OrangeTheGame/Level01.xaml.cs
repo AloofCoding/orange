@@ -25,6 +25,11 @@ namespace OrangeTheGame
             InitializeComponent();
         }
 
+        /// <summary>
+        /// with every step towards max 255, the screen becomes more orange-ish
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void slider_lv1_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             SolidColorBrush magicBrush = (SolidColorBrush)this.Resources["magicBrush"];
@@ -46,6 +51,11 @@ namespace OrangeTheGame
             }
         }
 
+        /// <summary>
+        /// Method activated when the player lets go of the slider, checks if winning condition is met
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void slider_lv1_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (slider_lv1.Value == 255)

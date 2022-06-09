@@ -27,6 +27,11 @@ namespace OrangeTheGame
 
         private int rectToFill = 0;
 
+        /// <summary>
+        /// Fills rectangle based on value determined by the right button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ell_btn_left_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
@@ -57,11 +62,20 @@ namespace OrangeTheGame
             rectToFill = 0;
         }
 
+        /// <summary>
+        /// when the right button is clicked, the rectangle which will be filled (when clicking on left button) is one more to the right
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ell_btn_right_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             rectToFill += 1;
         }
 
+        /// <summary>
+        /// checks if every rectangle is filled orange, then progresses to next level
+        /// </summary>
+        /// <param name="myBrush"></param>
         private async void checkIfFinished(SolidColorBrush myBrush)
         {
             if (rect_01.Fill.ToString().Equals(myBrush.ToString()) &&
