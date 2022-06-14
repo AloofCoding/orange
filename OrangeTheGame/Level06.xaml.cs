@@ -74,8 +74,9 @@ namespace OrangeTheGame
                 btn_bottom.IsEnabled = false;
                 btn_top.IsEnabled = false;
 
-                Level08 l8 = new Level08();
-                l8.Show();
+                //Thread.Sleep(1000);;
+                Level07 level = new Level07();
+                level.Show();
                 this.Close();
             }
             else

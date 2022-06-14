@@ -59,6 +59,7 @@ namespace OrangeTheGame
             int rect_position;
             pBar.Value += 10;
 
+            //if the progress bar reaches the maximum value the user has cleared the level
             if(pBar.Value == 100)
             {
                 dTimer.Stop();
@@ -69,8 +70,8 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                Level06 l6 = new Level06();
-                l6.Show();
+                Level05 level = new Level05();
+                level.Show();
                 this.Close();
             }
             //an earlier concept for this level that isn't used anymore
