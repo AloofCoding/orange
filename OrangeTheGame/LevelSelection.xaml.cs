@@ -76,20 +76,16 @@ namespace OrangeTheGame
         }
         private void btn_Level8_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This level is currently under construction.");
-
-            //Level08 level = new Level08();
-            //level.Show();
-            //this.Close();
+            Level08 level = new Level08();
+            level.Show();
+            this.Close();
         }
 
         private void btn_Level9_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This level is currently under construction.");
-
-            //Level09 level = new Level09();
-            //level.Show();
-            //this.Close();
+            Level09 level = new Level09();
+            level.Show();
+            this.Close();
         }
     }
 }

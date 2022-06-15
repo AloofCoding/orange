@@ -24,11 +24,6 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level07 : Window
     {
-
-        //ToDo: identify where the access violation occurs: occurs because of played music, not error in this level
-        //Das Programm "[4044] OrangeTheGame.exe" wurde mit Code -1073741819 (0xc0000005) 'Access violation' beendet.
-
-
         #region Variables
         System.Windows.Point currentPoint = new System.Windows.Point();
         SolidColorBrush myBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 143, 2));
@@ -181,9 +176,6 @@ namespace OrangeTheGame
                 PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
                 bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
 
-                //todo: fix error coming up
-                //error probably because writing of the files is too often/too fast
-
                 using (Stream stm = File.Open(fileName, FileMode.OpenOrCreate))
                 {
                     bitmapEncoder.Save(stm);
@@ -191,14 +183,14 @@ namespace OrangeTheGame
             }
             catch (Exception ex)
             {
-                MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
+                //MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
                 Thread.Sleep(100);
                 return;
             }
-            catch
-            {
-                Thread.Sleep(500);
-            } 
+            //catch
+            //{
+            //    Thread.Sleep(500);
+            //} 
         }
 
         /// <summary>

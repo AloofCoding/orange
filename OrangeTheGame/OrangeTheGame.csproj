@@ -202,9 +202,6 @@
     <Resource Include="options.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\options.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="puzzle-35789_640.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
