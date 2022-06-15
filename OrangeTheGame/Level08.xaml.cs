@@ -358,7 +358,7 @@ namespace OrangeTheGame
             }
             else
             {
-                MessageBox.Show("Level cleared!");              
+                //MessageBox.Show("Level cleared!");              
                 LevelSelection ls = new LevelSelection();
                 ls.Show();
                 this.Close();

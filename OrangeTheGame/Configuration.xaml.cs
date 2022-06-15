@@ -93,5 +93,22 @@ namespace OrangeTheGame
             txt_height.IsEnabled = false;
             txt_width.IsEnabled = false;
         }
+
+        private void cb_signup_Checked(object sender, RoutedEventArgs e)
+        {
+            lbl_login.Content = "Sign up:";
+            txt_repeat.Visibility = Visibility.Visible;
+        }
+
+        private void cb_signup_Unchecked(object sender, RoutedEventArgs e)
+        {
+            lbl_login.Content = "Login:";
+            txt_repeat.Visibility = Visibility.Hidden;
+        }
+
+        private void txt_username_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

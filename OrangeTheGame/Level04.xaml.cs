@@ -55,7 +55,7 @@ namespace OrangeTheGame
             //System.Windows.MessageBox.Show(dTimer.IsEnabled.ToString());
 
             Random rect_rnd = new Random();
-            Random rect_height = new Random();
+            //Random rect_height = new Random();
             int rect_position;
             pBar.Value += 10;
 
@@ -200,7 +200,7 @@ namespace OrangeTheGame
                 rect_position = rect_rnd.Next(10, 1035);
                 rect_pBar.IsEnabled = true;
                 rect_pBar.Margin = new Thickness(rect_position, 340, 1035 - rect_position, 0);
-                rect_pBar.Height = rect_height.Next(50, 269);
+                //rect_pBar.Height = rect_height.Next(50, 269);
             }
         }
     }

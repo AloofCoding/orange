@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
-        Title="Configuration" Height="450" Width="800" Background="#FFFF8F02" MinWidth="800" MinHeight="450">
+        Title="Configuration" Height="450" Width="800" Background="#FFFF8F02" MinWidth="800" MinHeight="450" ResizeMode="NoResize">
     <UserControl>
         <UserControl.Resources>
             <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect 
@@ -40,16 +40,21 @@
         </UserControl.Resources>
 
         <Grid>
-            <Label x:Name="lbl_pixelsettings" Content="Change window size:" HorizontalAlignment="Center"  Margin="56,58,475,278" VerticalAlignment="Center" Foreground="Black" FontSize="24" Height="83" Width="261"/>
-            <TextBox x:Name="txt_width" HorizontalAlignment="Center" Height="42" Margin="322,74,397,303" TextWrapping="Wrap" VerticalAlignment="Center" Width="73" PreviewTextInput="TypeNumericValidation" DataObject.Pasting="PasteNumericValidation" FontSize="24" MaxLength="4"/>
-            <TextBox x:Name="txt_height" HorizontalAlignment="Center" Height="42" Margin="504,74,214,303" TextWrapping="Wrap" VerticalAlignment="Center" Width="74" PreviewTextInput="TypeNumericValidation" DataObject.Pasting="PasteNumericValidation" FontSize="24" MaxLength="4"/>
-            <Label x:Name="lbl_x" Content="X" HorizontalAlignment="Center"  Margin="427,74,326,303" VerticalAlignment="Center" Foreground="Black" FontSize="24" Width="39" RenderTransformOrigin="-0.023,0.35"/>
-            <CheckBox x:Name="chk_fullscreen" Content="Fullscreen" HorizontalAlignment="Left" Margin="309,221,0,0" VerticalAlignment="Top" FontSize="12" IsChecked="True" Unchecked="chk_fullscreen_Unchecked" Checked="chk_fullscreen_Checked" RenderTransformOrigin="0.508,0.491" Height="28" Width="82" Cursor="Hand">
+            <Label x:Name="lbl_pixelsettings" Content="Change window size:" HorizontalAlignment="Center"  Margin="10,10,523,364" VerticalAlignment="Center" Foreground="Black" FontSize="24" Height="47" Width="261"/>
+            <TextBox x:Name="txt_width" HorizontalAlignment="Center" Height="42" Margin="271,10,450,369" TextWrapping="Wrap" VerticalAlignment="Center" Width="73" PreviewTextInput="TypeNumericValidation" DataObject.Pasting="PasteNumericValidation" FontSize="24" MaxLength="4"/>
+            <TextBox x:Name="txt_height" HorizontalAlignment="Center" Height="42" Margin="381,10,339,369" TextWrapping="Wrap" VerticalAlignment="Center" Width="74" PreviewTextInput="TypeNumericValidation" DataObject.Pasting="PasteNumericValidation" FontSize="24" MaxLength="4"/>
+            <Label x:Name="lbl_x" Content="X" HorizontalAlignment="Center"  Margin="349,10,418,369" VerticalAlignment="Center" Foreground="Black" FontSize="24" Width="27" RenderTransformOrigin="-0.023,0.35"/>
+            <CheckBox x:Name="chk_fullscreen" Content="Fullscreen" HorizontalAlignment="Left" Margin="496,18,0,0" VerticalAlignment="Top" FontSize="12" IsChecked="True" Unchecked="chk_fullscreen_Unchecked" Checked="chk_fullscreen_Checked" RenderTransformOrigin="0.508,0.491" Height="15" Width="82" Cursor="Hand">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2"/>
                 </CheckBox.LayoutTransform>
             </CheckBox>
             <Button x:Name="btn_close" Style="{StaticResource MyButtonStyle}" Content="Save - Close" HorizontalAlignment="Center" Margin="0,240,0,0" VerticalAlignment="Center" Click="btn_close_Click" FontSize="24" Cursor="Hand" />
+            <Label x:Name="lbl_login" Content="Login:" HorizontalAlignment="Center"  Margin="10,92,677,282" VerticalAlignment="Center" Foreground="Black" FontSize="24" Height="47" Width="107"/>
+            <TextBox x:Name="txt_username"  HorizontalAlignment="Left" Height="33" Margin="122,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" FontSize="20" Text="Username" TextChanged="txt_username_TextChanged"/>
+            <TextBox x:Name="txt_password" HorizontalAlignment="Left" Height="33" Margin="311,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" FontSize="20" Text="Password"/>
+            <TextBox x:Name="txt_repeat" HorizontalAlignment="Left" Height="33" Margin="500,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" FontSize="20" Visibility="Visible" Text="Repeat Password"/>
+            <CheckBox x:Name="cb_signup" Content="Sign up" HorizontalAlignment="Left" Height="19" Margin="10,144,0,0" VerticalAlignment="Top" Width="79" Checked="cb_signup_Checked" Unchecked="cb_signup_Unchecked"/>
 
         </Grid>
     </UserControl>
