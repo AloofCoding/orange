@@ -7,13 +7,12 @@
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
         Title="Level08" Height="450" Width="800"
-        Background="#FF8F02"
-        WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450">
+        WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450"
+        Background="Black"
+        Closing="Window_Closing">
+
     <Grid x:Name="grid_l8">
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -31,10 +30,6 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <!--<Button x:Name="btn_1" HorizontalAlignment="Left" Margin="50,50,0,0" VerticalAlignment="Top" Width="70" Height="70" Background="#CE7300" BorderThickness="0" Click="btn_1_Click"/>-->
     </Grid>
 </Window>

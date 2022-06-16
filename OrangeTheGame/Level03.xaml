@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
         Title="Level03" Height="450" Width="800"
-        Background="#000000" WindowState="Maximized" MinWidth="800" MinHeight="450">
+        Background="#000000" WindowState="Maximized" MinWidth="800" MinHeight="450"
+        Closing="Window_Closing">
+
     <Grid x:Name="grid_lv3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />

@@ -20,40 +20,53 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level06 : Window
     {
-        public Level06()
+        public Level06(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
+            //MessageBox.Show(order.ToString());
         }
+
+        Sql_handler handler;
 
         int count = 0;
 
         Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
+        Color color2 = (Color)ColorConverter.ConvertFromString("#CE7300");
 
-        //pressing the top button fills the next button on the upper line, but only if it's the one in the right order
+        int order = new Random().Next(0, 2);
+
+        /// <summary>
+        /// ensuring that the buttons change their color according to the right order
+        /// resetting the buttons in case the buttons are clicked in the wrong order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void btn_top_Click(object sender, RoutedEventArgs e)
         {
+            SolidColorBrush l_orange = new SolidColorBrush(color);
+            SolidColorBrush d_orange = new SolidColorBrush(color2);
+
+            #region 1st improvement
+            /*
             if (btn_top_blank1.Background == Brushes.Black)
             {
-                SolidColorBrush brush = new SolidColorBrush(color);
-                btn_top_blank1.Background = brush;
+                btn_top_blank1.Background = l_orange;
                 count++;
             }
-            else if(btn_top_blank2.Background == Brushes.Black && count == 3)
+            else if(count == 3)
             {
-                SolidColorBrush brush = new SolidColorBrush(color);
-                btn_top_blank2.Background = brush;
+                btn_top_blank2.Background = l_orange;
                 count++;
             }
-            else if (btn_top_blank3.Background == Brushes.Black && count == 4)
+            else if (count == 4)
             {
-                SolidColorBrush brush = new SolidColorBrush(color);
-                btn_top_blank3.Background = brush;
+                btn_top_blank3.Background = l_orange;
                 count++;
             }
-            else if (btn_top_blank4.Background == Brushes.Black && count == 7)
+            else if (count == 7)
             {
-                SolidColorBrush brush = new SolidColorBrush(color);
-                btn_top_blank4.Background = brush;
+                btn_top_blank4.Background = l_orange;
                 //MessageBox.Show("Level cleared!");
 
                 await Task.Run(() =>
@@ -71,59 +84,247 @@ namespace OrangeTheGame
             }
             else
             {
-                //resetting the users progress if they press the wrong button
-                btn_top_blank1.Background = Brushes.Black;
-                btn_top_blank2.Background = Brushes.Black;
-                btn_top_blank3.Background = Brushes.Black;
-                btn_top_blank4.Background = Brushes.Black;
-                btn_bottom_blank1.Background = Brushes.Black;
-                btn_bottom_blank2.Background = Brushes.Black;
-                btn_bottom_blank3.Background = Brushes.Black;
-                btn_bottom_blank4.Background = Brushes.Black;
+                foreach (Button b in main_grid.Children)
+                {
+                    b.Background = Brushes.Black;
+                }
+
+                btn_top.Background = d_orange;
+                btn_bottom.Background = d_orange;
+                
                 count = 0;
             }
+            */
+            #endregion
+
+            #region 2nd improvement
+            if (order == 1)
+            {
+                switch (count)
+                {
+                    case 0:
+                        btn_top_blank1.Background = l_orange;
+                        count++;
+                        break;
+                    case 3:
+                        btn_top_blank2.Background = l_orange;
+                        count++;
+                        break;
+                    case 4:
+                        btn_top_blank3.Background = l_orange;
+                        count++;
+                        break;
+                    case 7:
+                        btn_top_blank4.Background = l_orange;
+                        count++;
+                        await Task.Run(() =>
+                        {
+                            Thread.Sleep(1000);
+                            //MessageBox.Show("Loading next level.", "Please be patient.", MessageBoxButton.OK);
+                        });
+
+                        btn_bottom.IsEnabled = false;
+                        btn_top.IsEnabled = false;
+
+                        handler.Progress = 7;
+
+                        Level07 level = new Level07(handler);
+                        level.Show();
+                        this.Close();
+                        break;
+                    default:
+                        foreach (Button b in main_grid.Children.OfType<Button>())
+                        {
+                            b.Background = Brushes.Black;
+                        }
+
+                        btn_top.Background = d_orange;
+                        btn_bottom.Background = d_orange;
+
+                        count = 0;
+                        break;
+                } 
+            }
+            else
+            {
+                switch (count)
+                {
+                    case 1:
+                        btn_top_blank1.Background = l_orange;
+                        count++;
+                        break;
+                    case 2:
+                        btn_top_blank2.Background = l_orange;
+                        count++;
+                        break;
+                    case 5:
+                        btn_top_blank3.Background = l_orange;
+                        count++;
+                        break;
+                    case 6:
+                        btn_top_blank4.Background = l_orange;
+                        count++;
+                        break;
+                    default:
+                        foreach (Button b in main_grid.Children.OfType<Button>())
+                        {
+                            b.Background = Brushes.Black;
+                        }
+
+                        btn_top.Background = d_orange;
+                        btn_bottom.Background = d_orange;
+
+                        count = 0;
+                        break;
+                }
+            }
+            #endregion
         }
 
-        //pressing the lower button fills the next button from the bottom line, but only if it's the one in the correct order
-        private void btn_bottom_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// ensuring the buttons only change their color when clicked in the right order
+        /// resetting the buttons in case the buttons are clicked in the wrong order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void btn_bottom_Click(object sender, RoutedEventArgs e)
         {
-            if (btn_bottom_blank1.Background == Brushes.Black && count == 1)
+            SolidColorBrush l_orange = new SolidColorBrush(color);
+            SolidColorBrush d_orange = new SolidColorBrush(color2);
+
+            #region 1st improvement
+            /*
+            if (count == 1)
             {
-                SolidColorBrush brush = new SolidColorBrush(color);
-                btn_bottom_blank1.Background = brush;
+                btn_bottom_blank1.Background = l_orange;
                 count++;
             }
-            else if(btn_bottom_blank2.Background == Brushes.Black && count == 2)
+            else if(count == 2)
             {
-                SolidColorBrush brush = new SolidColorBrush(color);
-                btn_bottom_blank2.Background = brush;
+                btn_bottom_blank2.Background = l_orange;
                 count++;
             }
-            else if (btn_bottom_blank3.Background == Brushes.Black && count == 5)
+            else if (count == 5)
             {
-                SolidColorBrush brush = new SolidColorBrush(color);
-                btn_bottom_blank3.Background = brush;
+                btn_bottom_blank3.Background = l_orange;
                 count++;
             }
-            else if (btn_bottom_blank4.Background == Brushes.Black && count == 6)
+            else if (count == 6)
             {
-                SolidColorBrush brush = new SolidColorBrush(color);
-                btn_bottom_blank4.Background = brush;
+                btn_bottom_blank4.Background = l_orange;
                 count++;
             }
             else
             {
-                //resetting the users progress if they press the wrong button
-                btn_top_blank1.Background = Brushes.Black;
-                btn_top_blank2.Background = Brushes.Black;
-                btn_top_blank3.Background = Brushes.Black;
-                btn_top_blank4.Background = Brushes.Black;
-                btn_bottom_blank1.Background = Brushes.Black;
-                btn_bottom_blank2.Background = Brushes.Black;
-                btn_bottom_blank3.Background = Brushes.Black;
-                btn_bottom_blank4.Background = Brushes.Black;
+                foreach (Button b in main_grid.Children)
+                {
+                    b.Background = Brushes.Black;
+                }
+
+                btn_top.Background = d_orange;
+                btn_bottom.Background = d_orange;
+
                 count = 0;
             }
+            */
+            #endregion
+
+            //determines which order the user has to solve
+            //works with a switch-case for better performance than 1st improvement
+            #region 2nd improvement
+            if (order == 1)
+            {
+                switch (count)
+                {
+                    case 1:
+                        btn_bottom_blank1.Background = l_orange;
+                        count++;
+                        break;
+                    case 2:
+                        btn_bottom_blank2.Background = l_orange;
+                        count++;
+                        break;
+                    case 5:
+                        btn_bottom_blank3.Background = l_orange;
+                        count++;
+                        break;
+                    case 6:
+                        btn_bottom_blank4.Background = l_orange;
+                        count++;
+                        break;
+                    default:
+                        foreach (Button b in main_grid.Children.OfType<Button>())
+                        {
+                            b.Background = Brushes.Black;
+                        }
+
+                        btn_top.Background = d_orange;
+                        btn_bottom.Background = d_orange;
+
+                        count = 0;
+                        break;
+                } 
+            }
+            else
+            {
+                switch (count)
+                {
+                    case 0:
+                        btn_bottom_blank1.Background = l_orange;
+                        count++;
+                        break;
+                    case 3:
+                        btn_bottom_blank2.Background = l_orange;
+                        count++;
+                        break;
+                    case 4:
+                        btn_bottom_blank3.Background = l_orange;
+                        count++;
+                        break;
+                    case 7:
+                        btn_bottom_blank4.Background = l_orange;
+                        count++;
+                        await Task.Run(() =>
+                        {
+                            Thread.Sleep(1000);
+                            //MessageBox.Show("Loading next level.", "Please be patient.", MessageBoxButton.OK);
+                        });
+
+                        btn_bottom.IsEnabled = false;
+                        btn_top.IsEnabled = false;
+
+                        handler.Progress = 7;
+
+                        Level07 level = new Level07(handler);
+                        level.Show();
+                        this.Close();
+                        break;
+                    default:
+                        foreach (Button b in main_grid.Children.OfType<Button>())
+                        {
+                            b.Background = Brushes.Black;
+                        }
+
+                        btn_top.Background = d_orange;
+                        btn_bottom.Background = d_orange;
+
+                        count = 0;
+                        break;
+                }
+            }
+            #endregion
+        }
+
+        /// <summary>
+        /// saving the users progress
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }

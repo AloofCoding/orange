@@ -20,13 +20,20 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level02 : Window
     {
-        public Level02()
+        public Level02(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
         }
 
         public string hexstring;
+        Sql_handler handler;
 
+        /// <summary>
+        /// changing the background color according to the current set hex color
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void iup_hex2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
             //ensures the code is only executed when the integer up down controls exist on the form
@@ -50,12 +57,26 @@ namespace OrangeTheGame
                         Thread.Sleep(1000);
                     });
 
+                    handler.Progress = 3;
+
                     //Thread.Sleep(1000);
-                    Level03 level = new Level03();
+                    Level03 level = new Level03(handler);
                     level.Show();
                     this.Close();
                 }
             }          
+        }
+
+        /// <summary>
+        /// saving the users progress
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }

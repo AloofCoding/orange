@@ -33,8 +33,11 @@ namespace OrangeTheGame
             playMusic();
 
             //music.Start();
+
+            handler.Music = true;
         }
 
+        Sql_handler handler = new Sql_handler();
 
         //Music by <a href="/users/lvymusic-24939435/?tab=audio&amp;utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=audio&amp;utm_content=12964">lvymusic</a> from <a href="https://pixabay.com/music/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=music&amp;utm_content=12964">Pixabay</a>
 
@@ -44,14 +47,20 @@ namespace OrangeTheGame
 
         private void btn_startGame_Click(object sender, RoutedEventArgs e)
         {
-
-            // showing level selection screen
-            // playing a sound effect
-            lbl_titleOnStartingScreen.Visibility = Visibility.Hidden;
-            btn_startGame.Visibility = Visibility.Hidden;
-            LevelSelection level = new LevelSelection();
-            this.Close();
-            level.Show();
+            if (handler.Username!="Username")
+            {
+                // showing level selection screen
+                // playing a sound effect
+                lbl_titleOnStartingScreen.Visibility = Visibility.Hidden;
+                btn_startGame.Visibility = Visibility.Hidden;
+                LevelSelection level = new LevelSelection(handler);
+                this.Close();
+                level.Show(); 
+            }
+            else
+            {
+                MessageBox.Show("Please log in first!");
+            }
         }
 
         private void btn_music_Click(object sender, RoutedEventArgs e)
@@ -60,11 +69,13 @@ namespace OrangeTheGame
             {
                 btn_music.Content = "Music: Off";
                 player.Stop();
+                handler.Music = false;
             }
             else
             {
                 btn_music.Content = "Music: On";
                 player.PlayLooping();
+                handler.Music = true;
             }
         }
 
@@ -95,10 +106,22 @@ namespace OrangeTheGame
         /// <param name="e"></param>
         private void btn_options_Click(object sender, RoutedEventArgs e)
         {
-            //ToDo: save entered data and cast it on windows
-            Configuration config = new Configuration();
+            Configuration config = new Configuration(handler);
+
             config.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             config.ShowDialog();
+
+            if (handler.Music)
+            {
+                player.PlayLooping();
+            }
+            else
+            {
+                player.Stop();
+            }
+
+            //MessageBox.Show(handler.Music.ToString());
+
             //var result = MessageBox.Show("Erase game progress?", "Configurations", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
             //if (result == MessageBoxResult.Yes)
             //{

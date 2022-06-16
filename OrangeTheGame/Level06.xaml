@@ -7,8 +7,10 @@
         mc:Ignorable="d"
         Title="Level06" Height="450" Width="800"
         Background="#FF8F02"
-        WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450">
-    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450"
+        Closing="Window_Closing">
+    
+    <Grid x:Name="main_grid" HorizontalAlignment="Center" VerticalAlignment="Center">
         <Button x:Name="btn_top" Content="" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#CE7300" BorderThickness="0" Click="btn_top_Click"/>
         <Button x:Name="btn_bottom" Content="" HorizontalAlignment="Left" Margin="0,249,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#CE7300" BorderThickness="0" Click="btn_bottom_Click"/>
         <Button x:Name="btn_top_blank1" Content="" HorizontalAlignment="Left" Margin="307,0,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="Black" BorderThickness="0"/>
