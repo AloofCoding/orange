@@ -24,7 +24,6 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level09 : Window
     {
-        public Level09(Sql_handler sql_handler)
         List<string> list_orange = new List<string>();
         int count = 0;
         private Storyboard animation1;
@@ -32,7 +31,7 @@ namespace OrangeTheGame
         private Storyboard animation3;
         private Storyboard animation4;
 
-        public Level09()
+        public Level09(Sql_handler sql_handler)
         {
             handler = sql_handler;
             InitializeComponent();

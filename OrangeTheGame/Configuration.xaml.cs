@@ -99,33 +99,32 @@ namespace OrangeTheGame
                 {
                     if (handler.signin(txt_username.Text, pb_password.Password, handler.Con))
                     {
+                        handler.Cmd.CommandText = "update login set width = " + txt_width.Text + " where username = '" + txt_username.Text + "';";
+                        handler.Cmd.ExecuteNonQuery();
                         handler.Cmd.CommandText = "select width from login where username = '" + txt_username.Text + "';";
                         SqlDataReader reader = handler.Cmd.ExecuteReader();
                         reader.Read();
-                        txt_width.Text = reader.GetInt32(0).ToString();
+                        handler.Size_Width = reader.GetInt32(0);
                         reader.Close();
 
+                        handler.Cmd.CommandText = "update login set height = " + txt_height.Text + " where username = '" + txt_username.Text + "';";
+                        handler.Cmd.ExecuteNonQuery();
                         handler.Cmd.CommandText = "select height from login where username = '" + txt_username.Text + "';";
                         reader = handler.Cmd.ExecuteReader();
                         reader.Read();
-                        txt_height.Text = reader.GetInt32(0).ToString();
+                        handler.Size_Height = reader.GetInt32(0);
                         reader.Close();
 
+                        handler.Cmd.CommandText = "update login set fullscreen = '" + chk_fullscreen.IsChecked.ToString() + "' where username = '" + txt_username.Text + "';";
+                        handler.Cmd.ExecuteNonQuery();
                         handler.Cmd.CommandText = "select fullscreen from login where username = '" + txt_username.Text + "';";
                         reader = handler.Cmd.ExecuteReader();
                         reader.Read();
                         handler.Fullscreen = Boolean.Parse(reader.GetString(0));
-                        //MessageBox.Show(handler.Fullscreen.ToString());
-                        if (handler.Fullscreen)
-                        {
-                            chk_fullscreen.IsChecked = true;
-                        }
-                        else
-                        {
-                            chk_fullscreen.IsChecked = false;
-                        }
                         reader.Close();
 
+                        handler.Cmd.CommandText = "update login set music = '" + handler.Music.ToString() + "' where username = '" + txt_username.Text + "';";
+                        handler.Cmd.ExecuteNonQuery();
                         handler.Cmd.CommandText = "select music from login where username = '" + txt_username.Text + "';";
                         reader = handler.Cmd.ExecuteReader();
                         reader.Read();

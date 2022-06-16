@@ -18,8 +18,8 @@ namespace OrangeTheGame
         private int progress = 1;
         private int size_width = 800;
         private int size_height = 450;
-        private bool music;
-        private bool fullscreen;
+        private bool music = true;
+        private bool fullscreen = true;
         #endregion
 
         #region Constructor

@@ -86,7 +86,7 @@
             <CheckBox x:Name="cb_signup" Content="Sign up" HorizontalAlignment="Left" Height="19" Margin="10,144,0,0" VerticalAlignment="Top" Width="79" Checked="cb_signup_Checked" Unchecked="cb_signup_Unchecked"/>
             <Button x:Name="btn_close" Style="{StaticResource MyButtonStyle}" Content="Close" HorizontalAlignment="Center" Margin="126,331,479,52" VerticalAlignment="Center" Click="btn_close_Click" FontSize="24" Cursor="Hand" Width="195" Height="67" />
             <PasswordBox x:Name="pb_password" HorizontalAlignment="Left" Margin="311,100,0,0" VerticalAlignment="Top" Width="184" Height="33" FontSize="20"/>
-            <PasswordBox x:Name="pb_repeat" HorizontalAlignment="Left" Margin="500,100,0,0" VerticalAlignment="Top" Width="184" Height="33" FontSize="20"/>
+            <PasswordBox x:Name="pb_repeat" HorizontalAlignment="Left" Margin="500,100,0,0" VerticalAlignment="Top" Width="184" Height="33" FontSize="20" Visibility="Hidden"/>
 
         </Grid>
     </UserControl>

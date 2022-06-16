@@ -47,13 +47,23 @@ namespace OrangeTheGame
 
         private void btn_startGame_Click(object sender, RoutedEventArgs e)
         {
-            if (handler.Username!="Username")
+            if (handler.Username != null)
             {
                 // showing level selection screen
                 // playing a sound effect
                 lbl_titleOnStartingScreen.Visibility = Visibility.Hidden;
                 btn_startGame.Visibility = Visibility.Hidden;
                 LevelSelection level = new LevelSelection(handler);
+                if (handler.Fullscreen)
+                {
+                    level.WindowState = WindowState.Maximized;
+                }
+                else
+                {
+                    level.WindowState = WindowState.Normal;
+                    level.Width = handler.Size_Width;
+                    level.Height = handler.Size_Height;
+                }
                 this.Close();
                 level.Show(); 
             }
