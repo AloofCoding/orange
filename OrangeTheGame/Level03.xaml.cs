@@ -29,8 +29,7 @@ namespace OrangeTheGame
         }
 
         /// <summary>
-        /// If a rectangle is clicked upon, it changes its color from black to #FF8F02
-        /// When all 5 rectangles are covered, the level is finished
+        /// checks for the sender whether it is already clicked & colored orange, if not orange and gets clicked on -> it gets filled orange
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -50,6 +49,9 @@ namespace OrangeTheGame
             checkIfFinished();
         }
 
+        /// <summary>
+        /// checks if winning condition is met; if so, new level is started
+        /// </summary>
         private async void checkIfFinished()
         {
             Color color = (Color)ColorConverter.ConvertFromString("#FF8F02");
