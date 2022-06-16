@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
         Title="Level07" Height="450" Width="800"
-        Background="#ff8f02" WindowState="Maximized" Closed="Window_Closed">
+        Background="#ff8f02" WindowState="Maximized" Closed="Window_Closed" MinWidth="800" MinHeight="450">
     
     <Grid x:Name="grid">
         <Label x:Name="lbl_7"  Content="7" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" FontSize="100" Foreground="Black"/>

@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Level04" Height="650" Width="1155"
         Background="#FF8F02"
-        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
         <ProgressBar x:Name="pBar" HorizontalAlignment="Left" Height="325" Margin="10,10,0,0" VerticalAlignment="Top" Width="1127" BorderBrush="#00000000" Foreground="#FFFF8F02" Background="#FFCE7300"/>
         <Rectangle x:Name="rect_pBar" Fill="#FFCE7300" HorizontalAlignment="Center" Height="269" Margin="10,340,1035,0" Stroke="#00000000" VerticalAlignment="Top" Width="100" MouseEnter="Rectangle_MouseEnter"/>
