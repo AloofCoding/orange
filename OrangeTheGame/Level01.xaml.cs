@@ -20,10 +20,13 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level01 : Window
     {
-        public Level01()
+        public Level01(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
         }
+
+        Sql_handler handler;
 
         /// <summary>
         /// Calculating to change the color of the background equivalent according to the slider's value
@@ -62,12 +65,20 @@ namespace OrangeTheGame
             {
                 //level completed!
                 UpdateLayout();
+                handler.Progress = 2;
                 Thread.Sleep(1000);
                 
-                Level02 level = new Level02();
+                Level02 level = new Level02(handler);
                 level.Show();
                 this.Close();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }

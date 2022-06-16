@@ -20,14 +20,26 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level09 : Window
     {
-        public Level09()
+        public Level09(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
         }
 
+        Sql_handler handler;
+
         private void btn_finish_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            LevelSelection level = new LevelSelection(handler);
+            level.Show();
+            this.Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }

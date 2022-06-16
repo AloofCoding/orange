@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         Title="Level08" Height="450" Width="800"
         Background="Black"
-        WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Closing="Window_Closing">
 
     <Grid x:Name="grid_l8">
         <Grid.RowDefinitions>

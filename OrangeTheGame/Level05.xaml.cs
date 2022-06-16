@@ -20,10 +20,13 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level05 : Window
     {
-        public Level05()
+        public Level05(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
         }
+
+        Sql_handler handler;
 
         //variable specifying which of the 5 rectangles get turned orange.
         private int rectToFill = 0;
@@ -87,12 +90,20 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
+                handler.Progress = 6;
 
-                Level06 level = new Level06();
+                Level06 level = new Level06(handler);
 
                 level.Show();
                 this.Close();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }

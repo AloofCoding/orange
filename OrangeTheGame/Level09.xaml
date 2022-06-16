@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
         Title="Level 09" Height="450" Width="800"
-        Background="#FF8F02" WindowState="Maximized">
+        Background="#FF8F02" WindowState="Maximized"
+        Closing="Window_Closing">
     
     <Grid>
         <Rectangle x:Name="rect_12" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="0,0,0,0" Stroke="White" VerticalAlignment="Center" Width="20"/>

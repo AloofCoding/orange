@@ -20,11 +20,14 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level06 : Window
     {
-        public Level06()
+        public Level06(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
             //MessageBox.Show(order.ToString());
         }
+
+        Sql_handler handler;
 
         int count = 0;
 
@@ -123,8 +126,10 @@ namespace OrangeTheGame
                         btn_bottom.IsEnabled = false;
                         btn_top.IsEnabled = false;
 
-                        Level08 l8 = new Level08();
-                        l8.Show();
+                        handler.Progress = 7;
+
+                        Level07 level = new Level07(handler);
+                        level.Show();
                         this.Close();
                         break;
                     default:
@@ -288,8 +293,10 @@ namespace OrangeTheGame
                         btn_bottom.IsEnabled = false;
                         btn_top.IsEnabled = false;
 
-                        Level08 l8 = new Level08();
-                        l8.Show();
+                        handler.Progress = 7;
+
+                        Level07 level = new Level07(handler);
+                        level.Show();
                         this.Close();
                         break;
                     default:
@@ -306,6 +313,18 @@ namespace OrangeTheGame
                 }
             }
             #endregion
+        }
+
+        /// <summary>
+        /// saving the users progress
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }

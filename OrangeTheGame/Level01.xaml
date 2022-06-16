@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
         Title="Level01" Height="450" Width="800"
-        Background="#000000" WindowState="Maximized">
+        Background="#000000" WindowState="Maximized"
+        Closing="Window_Closing">
 
     <Window.Resources>
         <SolidColorBrush x:Key="magicBrush" Color="Black"/>

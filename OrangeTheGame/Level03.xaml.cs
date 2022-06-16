@@ -23,10 +23,13 @@ namespace OrangeTheGame
 
         private int amountOfClicks = 0;
 
-        public Level03()
+        public Level03(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
         }
+
+        Sql_handler handler;
 
         /// <summary>
         /// If a rectangle is clicked upon, it changes its color from black to #FF8F02
@@ -64,10 +67,19 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                Level04 level = new Level04();
+                handler.Progress = 4;
+
+                Level04 level = new Level04(handler);
                 level.Show();
                 this.Close();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }
