@@ -29,10 +29,13 @@ namespace OrangeTheGame
         SolidColorBrush myBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 143, 2));
         #endregion
 
-        public Level07()
+        public Level07(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
         }
+
+        Sql_handler handler;
 
         /// <summary>
         /// https://stackoverflow.com/questions/16037753/wpf-drawing-on-canvas-with-mouse-events
@@ -108,7 +111,9 @@ namespace OrangeTheGame
                     //image.Source = null;
                     //image = null;
 
-                    Level09 level = new Level09();
+                    handler.Progress = 8;
+
+                    Level08 level = new Level08(handler);
                     level.Show();
                     this.Close();
                 }
@@ -255,6 +260,13 @@ namespace OrangeTheGame
             //});
 
             //File.Delete(path);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }

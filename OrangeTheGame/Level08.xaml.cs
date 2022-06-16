@@ -26,8 +26,9 @@ namespace OrangeTheGame
         /// adding them to a list
         /// and placing the "startbuttons" on the form
         /// </summary>
-        public Level08()
+        public Level08(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
 
             Random temp_rnd = new Random();
@@ -51,6 +52,8 @@ namespace OrangeTheGame
             //    }
             //}          
         }
+
+        Sql_handler handler;
 
         bool[,] arr_grid = new bool[7, 7];
         //List<Button> clicked = new List<Button>();
@@ -358,9 +361,9 @@ namespace OrangeTheGame
             }
             else
             {
-                MessageBox.Show("Level cleared!");              
-                LevelSelection ls = new LevelSelection();
-                ls.Show();
+                handler.Progress = 9;           
+                Level09 level = new Level09(handler);
+                level.Show();
                 this.Close();
             }
 
@@ -484,6 +487,18 @@ namespace OrangeTheGame
                     b.Content = "";
                 } 
             }
+        }
+
+        /// <summary>
+        /// saving the users progress
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }

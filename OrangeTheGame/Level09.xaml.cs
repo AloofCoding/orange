@@ -24,6 +24,7 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level09 : Window
     {
+        public Level09(Sql_handler sql_handler)
         List<string> list_orange = new List<string>();
         int count = 0;
         private Storyboard animation1;
@@ -33,6 +34,7 @@ namespace OrangeTheGame
 
         public Level09()
         {
+            handler = sql_handler;
             InitializeComponent();
 
             //https://docs.microsoft.com/en-us/dotnet/desktop/wpf/graphics-multimedia/animation-overview?view=netframeworkdesktop-4.8
@@ -87,6 +89,15 @@ namespace OrangeTheGame
             grid_content.BringIntoView();
         }
 
+        Sql_handler handler;
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
+        }
+        
         private void lbl_e_MouseDown(object sender, MouseButtonEventArgs e)
         {
             count++;

@@ -24,13 +24,16 @@ namespace OrangeTheGame
     {
         DispatcherTimer dTimer;
 
-        public Level04()
+        public Level04(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
             dTimer = new DispatcherTimer();
             dTimer.Interval = TimeSpan.FromSeconds(1);
             dTimer.Tick += DTimer_Tick;
         }
+
+        Sql_handler handler;
 
         /// <summary>
         /// setting up the created dispatch timer to remove progress from the progress bar
@@ -55,7 +58,7 @@ namespace OrangeTheGame
             //System.Windows.MessageBox.Show(dTimer.IsEnabled.ToString());
 
             Random rect_rnd = new Random();
-            Random rect_height = new Random();
+            //Random rect_height = new Random();
             int rect_position;
             pBar.Value += 10;
 
@@ -70,7 +73,9 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                Level05 level = new Level05();
+                handler.Progress = 5;
+
+                Level05 level = new Level05(handler);
                 level.Show();
                 this.Close();
             }
@@ -200,8 +205,20 @@ namespace OrangeTheGame
                 rect_position = rect_rnd.Next(10, 1035);
                 rect_pBar.IsEnabled = true;
                 rect_pBar.Margin = new Thickness(rect_position, 340, 1035 - rect_position, 0);
-                rect_pBar.Height = rect_height.Next(50, 269);
+                //rect_pBar.Height = rect_height.Next(50, 269);
             }
+        }
+
+        /// <summary>
+        /// saving the users progress
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }

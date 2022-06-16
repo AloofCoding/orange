@@ -23,10 +23,13 @@ namespace OrangeTheGame
 
         private int amountOfClicks = 0;
 
-        public Level03()
+        public Level03(Sql_handler sql_handler)
         {
+            handler = sql_handler;
             InitializeComponent();
         }
+
+        Sql_handler handler;
 
         /// <summary>
         /// checks for the sender whether it is already clicked & colored orange, if not orange and gets clicked on -> it gets filled orange
@@ -66,10 +69,19 @@ namespace OrangeTheGame
                     Thread.Sleep(1000);
                 });
 
-                Level04 level = new Level04();
+                handler.Progress = 4;
+
+                Level04 level = new Level04(handler);
                 level.Show();
                 this.Close();
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            handler.Cmd.Connection = handler.Con;
+            handler.Cmd.CommandText = "update login set progress = " + handler.Progress + " where username = '" + handler.Username + "';";
+            handler.Cmd.ExecuteNonQuery();
         }
     }
 }

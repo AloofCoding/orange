@@ -28,8 +28,8 @@
                             </Border>
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="border" Property="Background" Value="#CE7300" />
-                                    <Setter TargetName="border" Property="BorderBrush" Value="#CE7300" />
+                                    <Setter TargetName="border" Property="Background" Value="#FF8F02" />
+                                    <Setter TargetName="border" Property="BorderBrush" Value="#FFA83A" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -39,15 +39,15 @@
         </UserControl.Resources>
 
         <Grid>
-            <Button x:Name="btn_Level1" Style="{StaticResource LevelsButtonStyle}" Content="1" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="40,35,472,454" Click="btn_Level1_Click"/>
-            <Button x:Name="btn_Level2" Style="{StaticResource LevelsButtonStyle}" Content="2" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="264,35,248,454" Click="btn_Level2_Click"/>
-            <Button x:Name="btn_Level3" Style="{StaticResource LevelsButtonStyle}" Content="3" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="472,35,40,454" Click="btn_Level3_Click"/>
-            <Button x:Name="btn_Level4" Style="{StaticResource LevelsButtonStyle}" Content="4" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="40,241,472,248" Click="btn_Level4_Click"/>
-            <Button x:Name="btn_Level5" Style="{StaticResource LevelsButtonStyle}" Content="5" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="264,241,248,248" Click="btn_Level5_Click"/>
-            <Button x:Name="btn_Level6" Style="{StaticResource LevelsButtonStyle}" Content="6" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="472,241,40,248" Click="btn_Level6_Click"/>
-            <Button x:Name="btn_Level7" Style="{StaticResource LevelsButtonStyle}" Content="7" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="40,449,472,40" Click="btn_Level7_Click"/>
-            <Button x:Name="btn_Level8" Style="{StaticResource LevelsButtonStyle}" Content="8" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="264,449,248,40" Click="btn_Level8_Click"/>
-            <Button x:Name="btn_Level9" Style="{StaticResource LevelsButtonStyle}" Content="9" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="472,449,40,40" Click="btn_Level9_Click"/>
+            <Button x:Name="btn_Level1" Style="{StaticResource LevelsButtonStyle}" Content="1" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="40,35,472,454" Click="btn_Level1_Click" Cursor="Hand" IsEnabled="True"/>
+            <Button x:Name="btn_Level2" Style="{StaticResource LevelsButtonStyle}" Content="🔒" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="264,35,248,454" Click="btn_Level2_Click" Cursor="Hand" IsEnabled="False"/>
+            <Button x:Name="btn_Level3" Style="{StaticResource LevelsButtonStyle}" Content="🔒" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="472,35,40,454" Click="btn_Level3_Click" Cursor="Hand" IsEnabled="False"/>
+            <Button x:Name="btn_Level4" Style="{StaticResource LevelsButtonStyle}" Content="🔒" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="40,241,472,248" Click="btn_Level4_Click" Cursor="Hand" IsEnabled="False"/>
+            <Button x:Name="btn_Level5" Style="{StaticResource LevelsButtonStyle}" Content="🔒" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="264,241,248,248" Click="btn_Level5_Click" Cursor="Hand" IsEnabled="False"/>
+            <Button x:Name="btn_Level6" Style="{StaticResource LevelsButtonStyle}" Content="🔒" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="472,241,40,248" Click="btn_Level6_Click" Cursor="Hand" IsEnabled="False"/>
+            <Button x:Name="btn_Level7" Style="{StaticResource LevelsButtonStyle}" Content="🔒" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="40,449,472,40" Click="btn_Level7_Click" Cursor="Hand" IsEnabled="False"/>
+            <Button x:Name="btn_Level8" Style="{StaticResource LevelsButtonStyle}" Content="🔒" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="264,449,248,40" Click="btn_Level8_Click" Cursor="Hand" IsEnabled="False"/>
+            <Button x:Name="btn_Level9" Style="{StaticResource LevelsButtonStyle}" Content="🔒" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="80" Margin="472,449,40,40" Click="btn_Level9_Click" Cursor="Hand" IsEnabled="False"/>
         </Grid>
     </UserControl>
 </Window>
