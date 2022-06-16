@@ -32,7 +32,7 @@ namespace OrangeTheGame
         private int rectToFill = 0;
 
         /// <summary>
-        /// The rectangle which's number is stored in rectToFill gets turned orange when the left button is pressed
+        /// Fills rectangle based on value determined by the right button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -67,7 +67,7 @@ namespace OrangeTheGame
         }
 
         /// <summary>
-        /// increases rectToFill when the right button is pressed
+        /// when the right button is clicked, the rectangle which will be filled (when clicking on left button) is one more to the right
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -76,7 +76,10 @@ namespace OrangeTheGame
             rectToFill += 1;
         }
 
-
+        /// <summary>
+        /// checks if every rectangle is filled orange, then progresses to next level
+        /// </summary>
+        /// <param name="myBrush"></param>
         private async void checkIfFinished(SolidColorBrush myBrush)
         {
             if (rect_01.Fill.ToString().Equals(myBrush.ToString()) &&

@@ -24,14 +24,8 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level07 : Window
     {
-
-        //ToDo: identify where the access violation occurs: occurs because of played music, not error in this level
-        //Das Programm "[4044] OrangeTheGame.exe" wurde mit Code -1073741819 (0xc0000005) 'Access violation' beendet.
-
-
         #region Variables
         System.Windows.Point currentPoint = new System.Windows.Point();
-        string path;
         SolidColorBrush myBrush = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 143, 2));
         #endregion
 
@@ -67,9 +61,6 @@ namespace OrangeTheGame
             {
                 if (e.LeftButton == MouseButtonState.Pressed)
                 {
-                    //polyLine = new Polyline();
-                    //polyLine.Stroke = new SolidColorBrush(Colors.AliceBlue);
-                    //polyLine.StrokeThickness = 10;
                     Line line = new Line();
                     line.Stroke = myBrush;
                     line.StrokeThickness = 5;
@@ -81,7 +72,7 @@ namespace OrangeTheGame
                     currentPoint = e.GetPosition(this);
 
                     paintSurface.Children.Add(line);
-                    //https://stackoverflow.com/questions/624534/get-a-bitmap-from-a-wpf-application-window
+                    // //https://stackoverflow.com/questions/624534/get-a-bitmap-from-a-wpf-application-window
                 }
             }
             catch (Exception ex)
@@ -92,7 +83,8 @@ namespace OrangeTheGame
         }
 
         /// <summary>
-        /// 
+        /// Method for providing a path to the CreateBitmapFromVisual, the SetImageSource and providing the bitmap for GetAverageColor
+        /// Combining these methods to make level's logic
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -189,9 +181,6 @@ namespace OrangeTheGame
                 PngBitmapEncoder bitmapEncoder = new PngBitmapEncoder();
                 bitmapEncoder.Frames.Add(BitmapFrame.Create(renderTarget));
 
-                //todo: fix error coming up
-                //error probably because writing of the files is too often/too fast
-
                 using (Stream stm = File.Open(fileName, FileMode.OpenOrCreate))
                 {
                     bitmapEncoder.Save(stm);
@@ -199,14 +188,14 @@ namespace OrangeTheGame
             }
             catch (Exception ex)
             {
-                MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
+                //MessageBox.Show("CreateBitmapFromVisual\n" + ex.ToString());
                 Thread.Sleep(100);
                 return;
             }
-            catch
-            {
-                Thread.Sleep(500);
-            } 
+            //catch
+            //{
+            //    Thread.Sleep(500);
+            //} 
         }
 
         /// <summary>
@@ -259,6 +248,7 @@ namespace OrangeTheGame
 
         /// <summary>
         /// deletes temp.bmp after the level is finished and the window is closed
+        /// should be deleted because temp.bmp is saved to project's resources
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

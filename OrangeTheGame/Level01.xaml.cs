@@ -29,7 +29,7 @@ namespace OrangeTheGame
         Sql_handler handler;
 
         /// <summary>
-        /// Calculating to change the color of the background equivalent according to the slider's value
+        /// with every step towards max 255, the screen becomes more orange-ish
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

@@ -270,6 +270,7 @@ namespace OrangeTheGame
                 level.Width = handler.Size_Width;
                 level.Height = handler.Size_Height;
             }
+
             level.Show();
             this.Close();
         }

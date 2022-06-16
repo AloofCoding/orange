@@ -10,24 +10,44 @@
         Closing="Window_Closing">
     
     <Grid>
-        <Rectangle x:Name="rect_12" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="0,0,0,0" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_11" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="366,200,406,199" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_10" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="366,180,406,219" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_09" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="366,160,406,239" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_08" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="386,160,386,239" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_07" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="406,160,366,239" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_06" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="406,180,366,219" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_05" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="406,200,366,199" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_04" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="406,220,366,179" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_03" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="406,240,366,159" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_02" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="386,240,386,159" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Rectangle x:Name="rect_01" Fill="Black" HorizontalAlignment="Center" Height="20" Margin="366,240,406,159" Stroke="White" VerticalAlignment="Center" Width="20"/>
-        <Button x:Name="btn_finish" Content="Finish this" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="211,225,0,0" Click="btn_finish_Click"/>
+        <Label x:Name="lbl_thanks" Content="Thanks for playing!" HorizontalAlignment="Center" Margin="37,30,37,261" VerticalAlignment="Center" Height="128" Width="718" FontSize="80"/>
+        <Label x:Name="lbl_guess" Content="By now you should have guessed &#xA;what our favorite color is." HorizontalAlignment="Center" Margin="18,164,18,111" VerticalAlignment="Center" FontSize="50"/>
+        <Label x:Name="lbl_yellow" Content="Right:" HorizontalAlignment="Center" Margin="221,334,433,8" VerticalAlignment="Center" FontSize="50"/>
+        <Label x:Name="lbl_yellow_Copy" Content="Yellow" HorizontalAlignment="Center" Margin="366,334,245,8" VerticalAlignment="Center" FontSize="50" Width="181"/>
 
-        <!-- Concept for level 9:
-        snake game, spawn 5 (or 9) white objects which shall be eaten
-        snake dies when having contact with the edge and level restarts
-        level ends if all fruits are eaten -->
-        
+
+        <Label x:Name="lbl_9"  Content="9" HorizontalAlignment="Center" Margin="11,292,717,-15" VerticalAlignment="Center" FontSize="100" Foreground="#FFCE7300" RenderTransformOrigin="0.5,0.5"/>
+        <Grid x:Name="grid_content" HorizontalAlignment="Center" Height="450" Margin="0,0,0,0" VerticalAlignment="Center" Width="800">
+
+            <Label x:Name="lbl_txt_Andreas"  Content="Andreas Steiner" HorizontalAlignment="Center" Margin="351,46,80,327" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="369"/>
+            <Label x:Name="lbl_txt_designed"  Content="designed by" HorizontalAlignment="Center" Margin="10,80,495,294" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="295"/>
+            <Label x:Name="lbl_txt_Christoph"  Content="Christoph Steiner" HorizontalAlignment="Center" Margin="351,128,53,246" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.686,0.349" Width="396"/>
+
+            <Label x:Name="lbl_o"  Content="o" HorizontalAlignment="Center" Margin="478,128,282,246" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="40" MouseDown="lbl_e_MouseDown"/>
+
+            <Label x:Name="lbl_r1"  Content="r" HorizontalAlignment="Center" Margin="441,46,331,328" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="30" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_r2"  Content="r" HorizontalAlignment="Center" Margin="680,46,90,328" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="30" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_r3"  Content="r" HorizontalAlignment="Center" Margin="410,128,360,246" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="30" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_r4"  Content="r" HorizontalAlignment="Center" Margin="713,128,57,246" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="30" MouseDown="lbl_e_MouseDown"/>
+
+            <Label x:Name="lbl_a"  Content="a" HorizontalAlignment="Center" Margin="485,46,275,328" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="40" MouseDown="lbl_e_MouseDown"/>
+
+            <Label x:Name="lbl_n1"  Content="n" HorizontalAlignment="Center" Margin="128,80,636,294" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_n2"  Content="n" HorizontalAlignment="Center" Margin="659,128,105,246" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_n3"  Content="n" HorizontalAlignment="Center" Margin="625,46,139,328" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_n4"  Content="n" HorizontalAlignment="Center" Margin="383,46,381,328" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+
+            <Label x:Name="lbl_g"  Content="g" HorizontalAlignment="Center" Margin="99,80,661,294" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="40" MouseDown="lbl_e_MouseDown"/>
+
+
+            <Label x:Name="lbl_e1"  Content="e" HorizontalAlignment="Center" Margin="458,46,306,328" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_e2"  Content="e" HorizontalAlignment="Center" Margin="653,46,111,328" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_e3"  Content="e" HorizontalAlignment="Center" Margin="687,128,77,246" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_e4"  Content="e" HorizontalAlignment="Center" Margin="620,128,144,252" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_e5"  Content="e" HorizontalAlignment="Center" Margin="587,46,177,328" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_e6"  Content="e" HorizontalAlignment="Center" Margin="157,80,607,294" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+            <Label x:Name="lbl_e7"  Content="e" HorizontalAlignment="Center" Margin="39,80,725,294" VerticalAlignment="Center" FontSize="50" Foreground="Black" RenderTransformOrigin="0.5,0.5" Width="36" MouseDown="lbl_e_MouseDown"/>
+
+        </Grid>
     </Grid>
 </Window>

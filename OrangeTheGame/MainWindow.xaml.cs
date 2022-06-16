@@ -34,8 +34,6 @@ namespace OrangeTheGame
 
             //music.Start();
 
-            //ToDo: Fix access violation coming up with level 07
-
             handler.Music = true;
         }
 
@@ -81,12 +79,14 @@ namespace OrangeTheGame
             }
         }
 
+        /// <summary>
+        /// async method so the music file is only loaded once and not all the time while playing
+        /// </summary>
         private async void playMusic()
         {
             await Task.Run(() =>
             {
                 //MessageBox.Show("thread music");
-                //Todo: making relative
                 var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
                 string filePath = System.IO.Path.Combine(projectPath, "Resources\\ambient-easy-house-music-12964.wav");
                 player.SoundLocation = filePath;
@@ -99,9 +99,15 @@ namespace OrangeTheGame
             });
         }
 
+        /// <summary>
+        /// Opens new window with ability to change window size which is full-screen by default
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_options_Click(object sender, RoutedEventArgs e)
         {
             Configuration config = new Configuration(handler);
+
             config.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             config.ShowDialog();
 
