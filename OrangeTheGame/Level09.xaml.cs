@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Drawing.Drawing2D;
+using System.Windows.Interop;
+using System.Windows.Media.Animation;
+using System.Threading;
 
 
 namespace OrangeTheGame
@@ -21,239 +24,141 @@ namespace OrangeTheGame
     /// </summary>
     public partial class Level09 : Window
     {
+        List<string> list_orange = new List<string>();
+        int count = 0;
+        private Storyboard animation1;
+        private Storyboard animation2;
+        private Storyboard animation3;
+        private Storyboard animation4;
+
         public Level09()
         {
             InitializeComponent();
+
+            //https://docs.microsoft.com/en-us/dotnet/desktop/wpf/graphics-multimedia/animation-overview?view=netframeworkdesktop-4.8
+
+            lbl_guess.Height = 0;
+            lbl_guess.Opacity = 0.0;
+            lbl_thanks.Height = 0;
+            lbl_thanks.Opacity = 0.0;
+            lbl_yellow.Height=0;
+            lbl_yellow.Opacity = 0.0;
+            lbl_yellow_Copy.Height = 0;
+            lbl_yellow_Copy.Opacity = 0.0;
+
+
+            DoubleAnimation ch_opacity1 = new DoubleAnimation();
+            ch_opacity1.From = 0.0;
+            ch_opacity1.To = 1.0;
+            ch_opacity1.Duration = new Duration(TimeSpan.FromSeconds(3));
+            animation1 = new Storyboard();
+            animation1.Children.Add(ch_opacity1);
+            Storyboard.SetTargetName(ch_opacity1, "lbl_thanks");
+            Storyboard.SetTargetProperty(ch_opacity1, new PropertyPath(Label.OpacityProperty));
+
+            DoubleAnimation ch_opacity2 = new DoubleAnimation();
+            ch_opacity2.From = 0.0;
+            ch_opacity2.To = 1.0;
+            ch_opacity2.Duration = new Duration(TimeSpan.FromSeconds(3));
+            animation2 = new Storyboard();
+            animation2.Children.Add(ch_opacity2);
+            Storyboard.SetTargetName(ch_opacity2, "lbl_guess");
+            Storyboard.SetTargetProperty(ch_opacity2, new PropertyPath(Label.OpacityProperty));
+
+            DoubleAnimation ch_opacity3 = new DoubleAnimation();
+            ch_opacity3.From = 0.0;
+            ch_opacity3.To = 1.0;
+            ch_opacity3.Duration = new Duration(TimeSpan.FromSeconds(3));
+            animation3 = new Storyboard();
+            animation3.Children.Add(ch_opacity3);
+            Storyboard.SetTargetName(ch_opacity3, "lbl_yellow");
+            Storyboard.SetTargetProperty(ch_opacity3, new PropertyPath(Label.OpacityProperty));
+
+            DoubleAnimation ch_opacity4 = new DoubleAnimation();
+            ch_opacity4.From = 0.0;
+            ch_opacity4.To = 1.0;
+            ch_opacity4.Duration = new Duration(TimeSpan.FromSeconds(3));
+            animation4 = new Storyboard();
+            animation4.Children.Add(ch_opacity4);
+            Storyboard.SetTargetName(ch_opacity4, "lbl_yellow_Copy");
+            Storyboard.SetTargetProperty(ch_opacity4, new PropertyPath(Label.OpacityProperty));
+
+
+            grid_content.BringIntoView();
         }
 
-        private void btn_finish_Click(object sender, RoutedEventArgs e)
+        private void lbl_e_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Close();
-        }
+            count++;
+            Label label = (Label)sender;
+            label.Foreground = new SolidColorBrush(Color.FromRgb(206, 115, 0));
+            list_orange.Add(label.Content.ToString());
 
-
-        //ToDo: currently no difference to program before adding snake code
-        #region var && cons
-        private const int HeadWidth = 10;
-        private int Move = 0;
-        // position
-        private int HeadX = 0;
-        private int HeadY = 0;
-        private int FoodX = 10;
-        private int FoodY = 10;
-        #endregion
-
-        #region counter
-        private int Archive = 0;
-        private int CountScore = 0;
-        private int CountMove = 0;
-        private List<int> PosX = new List<int>();
-        private List<int> PosY = new List<int>();
-        private List<int> CountArchive = new List<int>();
-        #endregion
-
-        System.Timers.Timer tim_speed = new System.Timers.Timer();
-
-        private void Tim_speed_Tick(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-
-            tim_speed.Enabled = true;
-
-            //lbl_x.Text = Convert.ToString(HeadX)+":"+ Convert.ToString(HeadY);
-            //lbl_y.Text = Convert.ToString(FoodX)+":"+ Convert.ToString(FoodY);
-
-            #region Movement
-            if (Move == 0)
+            if (count == 6)
             {
-                HeadY += HeadWidth;
-            }
-            if (Move == 1)
-            {
-                HeadX += HeadWidth;
-            }
-            if (Move == 2)
-            {
-                HeadY -= HeadWidth;
-            }
-            if (Move == 3)
-            {
-                HeadX -= HeadWidth;
-            }
-            #endregion
-
-            #region point / food eaten
-            if (FoodX == HeadX && FoodY == HeadY)
-            {
-                CountScore += 1;
-                CountArchive.Add(CountScore);
-                //lbl_score_number.Text = Convert.ToString(CountScore);
-                do
+                string keyword = "";
+                foreach(string s in list_orange)
                 {
-                    FoodX = rnd.Next(10, 800 - HeadWidth);
-                } while (FoodX % HeadWidth != 0);
-                do
+                    keyword += s;
+                }
+                if (keyword.ToLower().Equals("orange"))
                 {
-                    FoodY = rnd.Next(10, 450- HeadWidth);
-                } while (FoodY % HeadWidth != 0);
-            }
-            #endregion
-
-            CountMove += 1;
-            PosX.Add(HeadX);
-            PosY.Add(HeadY);
-
-            ///////////////
-            // Game over //
-            ///////////////
-            // Case 1
-            if (CountScore > 0)
-            {
-                List<int> sublistX = PosX.GetRange(PosX.Count - CountScore, CountScore - 1);
-                List<int> sublistY = PosY.GetRange(PosY.Count - CountScore, CountScore - 1);
-
-
-                if (sublistX.Contains(HeadX) && sublistY.Contains(HeadY))
+                    finished();
+                }
+                else
                 {
-                    for (int i = 0; i < sublistX.Count; i++)
+                    foreach(object o in grid_content.Children)
                     {
-                        if (sublistX[i] == HeadX && sublistY[i] == HeadY)
+                        if (o.GetType().Equals(lbl_a.GetType()))
                         {
-                            //tim_speed.Enabled = false;
-                            //MessageBox.Show("Sie haben sich selbst gefressen!", "Game over!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            //StreamWriter datei = new StreamWriter(@"scorelog.txt", true);
-                            //datei.WriteLine(CountScore);
-                            //datei.Flush();
-                            //datei.Close();
-                            //datei.Dispose();
-
-                            //ToDo: Restart level with set code
-                            //Application.Restart();
+                            Label l = (Label)o;
+                            l.Foreground = Brushes.Black;
                         }
                     }
+                    list_orange.Clear();
+                    count = 0;
                 }
             }
-            // Case 2
-            if (HeadX < 0 || HeadY < 0 || HeadX > 800 || HeadY > 450)
-            {
-                //tim_speed.Enabled = false;
-                //MessageBox.Show("Sie haben die Wand berührt!", "Game over!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                //StreamWriter datei = new StreamWriter(@"scorelog.txt", true);
-                //datei.WriteLine(CountScore);
-                //datei.Flush();
-                //datei.Close();
-                //datei.Dispose();
-                //ToDo: Restart level with set code, maybe use a method
-                //Application.Restart();
-            }
-            UpdateLayout();
         }
 
-        private void Snake_KeyDown(object sender, KeyEventArgs e)
+        private async void finished()
         {
-            
-        }
+            grid_content.Visibility = Visibility.Hidden;
+            lbl_9.Visibility = Visibility.Hidden;
+            lbl_guess.Height = 143;
+            lbl_thanks.Height = 130;
+            lbl_yellow.Height = 77;
+            lbl_yellow_Copy.Height = 77;
+            animation1.Begin(this);
 
-        //ToDo: find right eventargs/change the code so it works
-        private void Snake_Paint(object sender, EventArgs e)
-        {
-            //e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            //e.Graphics.FillEllipse(Brushes.Black, HeadX, HeadY, HeadWidth, HeadWidth);
-
-            Ellipse ellipse = new Ellipse();
-            ellipse.Width = HeadWidth;
-            ellipse.Height = HeadWidth;
-            ellipse.Fill = Brushes.DarkOrange;
-            this.AddChild(ellipse);
-
-            //e.Graphics.FillRectangle(Brushes.Red, FoodX, FoodY, HeadWidth, HeadWidth);
-            Ellipse food = new Ellipse();
-            
-            food.Width = HeadWidth;
-            food.Height = HeadWidth;
-            food.Fill = Brushes.Black;
-            
-
-            for (int i = 0; i < CountArchive.Count; i++)
+            await Task.Run(() =>
             {
-                //e.Graphics.FillEllipse(Brushes.Green, PosX[CountMove - CountArchive[i] - 1], PosY[CountMove - CountArchive[i] - 1], HeadWidth, HeadWidth);
-            }
-            Archive = CountScore;
-        }
-
-        private void Snake_Load(object sender, EventArgs e)
-        {
-
-
-            //StreamReader top = new StreamReader(@"scorelog.txt", true);
-            //string line;
-            //List<int> highscore = new List<int>();
-            //while ((line = top.ReadLine()) != null)
-            //{
-            //    highscore.Add(Convert.ToInt16(line));
-            //}
-            //lbl_highscore_number.Text = Convert.ToString(highscore.Max());
-            //top.Close();
-
-            UpdateLayout();
-            //SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
-        }
-
-        private void Grid_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (Move == 0 || Move == 2)
+                Thread.Sleep(4000);
+            });
+            animation2.Begin(this);
+            await Task.Run(() =>
             {
-                if (e.Key == Key.Right)
-                {
-                    Move = 1;
-                }
-                if (e.Key == Key.Left)
-                {
-                    Move = 3;
-                }
-            }
-            if (Move == 1 || Move == 3)
+                Thread.Sleep(5000);
+            });
+
+            animation3.Begin(this);
+
+            await Task.Run(() =>
             {
-                if (e.Key == Key.Down)
-                {
-                    Move = 0;
-                }
-                if (e.Key == Key.Up)
-                {
-                    Move = 2;
-                }
-            }
+                Thread.Sleep(5000);
+            });
 
-            //if (e.KeyCode == Keys.P)
-            //{
-            //    if (tim_speed.Enabled)
-            //    {
-            //        tim_speed.Enabled = false;
-            //        lbl_pause.Text = "-Pause-";
-            //    }
-            //    else
-            //    {
-            //        tim_speed.Enabled = true;
-            //        lbl_pause.Text = null;
-            //    }
-            //}
-        }
+            animation4.Begin(this);
 
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
-        {
-            Random rnd = new Random();
 
-            do
+            await Task.Run(() =>
             {
-                FoodX = rnd.Next(10, 800- HeadWidth);
-            } while (FoodX % HeadWidth != 0);
+                Thread.Sleep(5000);
+            });
 
-            do
-            {
-                FoodY = rnd.Next(10, 450 - HeadWidth);
-            } while (FoodY % HeadWidth != 0);
+            MainWindow level = new MainWindow();
+            level.Show();
+            Close();
         }
     }
 }
