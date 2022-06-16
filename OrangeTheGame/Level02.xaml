@@ -6,13 +6,13 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:OrangeTheGame"
         mc:Ignorable="d"
-        Title="Level02" Height="650" Width="1155"
+        Title="Level02" Height="450" Width="800"
         Background="#FF0F02"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" MinWidth="800" MinHeight="450">
     <Grid x:Name="bg" VerticalAlignment="Center" HorizontalAlignment="Center">
         <Label Content="#FF     F     2" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Height="140" Width="550" IsEnabled="False" Foreground="#FFFF8F02" FontSize="100"/>
-        <xctk:IntegerUpDown x:Name="iup_hex1" Height="135" Width="125" Margin="458,240,549,239" FontSize="100" Increment="1" Maximum="9" Minimum="0" Foreground="#FF8F02" Background="Transparent" DisplayDefaultValueOnEmptyText="True" DefaultValue="1" ValueChanged="iup_hex2_ValueChanged"/>
-        <xctk:IntegerUpDown x:Name="iup_hex2" Height="135" Width="125" Margin="650,240,365,239" FontSize="100" Increment="1" Maximum="9" Minimum="0" Foreground="#FF8F02" Background="Transparent" DisplayDefaultValueOnEmptyText="True" DefaultValue="1" ValueChanged="iup_hex2_ValueChanged"/>
-        <Label Content="2" HorizontalAlignment="Left" Margin="775,237,0,0" VerticalAlignment="Top" Height="145" Width="65" FontSize="100" Foreground="#FFCE7300"/>
+        <xctk:IntegerUpDown x:Name="iup_hex1" Height="135" Width="125" Margin="282,142,384,141" FontSize="100" Increment="1" Maximum="9" Minimum="0" Foreground="#FF8F02" Background="Transparent" DisplayDefaultValueOnEmptyText="True" DefaultValue="1" ValueChanged="iup_hex2_ValueChanged"/>
+        <xctk:IntegerUpDown x:Name="iup_hex2" Height="135" Width="125" Margin="474,142,192,141" FontSize="100" Increment="1" Maximum="9" Minimum="0" Foreground="#FF8F02" Background="Transparent" DisplayDefaultValueOnEmptyText="True" DefaultValue="1" ValueChanged="iup_hex2_ValueChanged"/>
+        <Label Content="2" HorizontalAlignment="Left" Margin="600,139,0,0" VerticalAlignment="Top" Height="144" Width="64" FontSize="100" Foreground="#FFCE7300"/>
     </Grid>
 </Window>
